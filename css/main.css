@@ -1,0 +1,40 @@
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+#mainContainer {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+}
+
+#mainCanvas {
+    position: absolute;
+}
+
+h1 { 
+    font-size: 8em;
+}
+
+h2 { 
+	font-size: 3em;
+}
+
+#header { 
+	padding-top: 10%;
+}
+
+#trending {
+	height: 30vh;
+    background-color: #00bfff;
+    color: white;
+}
+
+#button {
+	background-color: #00bfff;
+}
+
+#container {
+	padding-top: 50%;
+}

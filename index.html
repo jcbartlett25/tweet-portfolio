@@ -1,1 +1,63 @@
-HELLO WORLD
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Tweet Portfolio">
+    <meta name="author" content="FJPY">
+    <link rel="icon" href="/favicon/tweetportfolio.ico">
+	
+    <title>Tweet Portfolio</title>
+
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+
+    <div id="mainContainer">
+        <canvas id="mainCanvas" keepalive="true"></canvas>
+        <div id="header" class="text-center">
+            <h1>Tweet Portfolio</h1>
+			<h2>Start organizing your tweets after a search below...</h2>
+			
+            <a href="/mainpage/">
+                <button type="button" class="btn btn-lg btn-primary" id="cta">Search</button>
+            </a>
+			
+        </div>
+    </div>
+
+    <div id="trending" class="row">
+        <div class="container">
+			<h2>Trending Searches</h2>
+        </div>
+		<div class="container">
+		  <div class="row">
+			<div class="col-sm-4">
+			  <div class="button">
+				<h3>Topic 1 <span class="glyphicon glyphicon-arrow-right"></h3>
+			  </div>
+			</div>
+			<div class="col-sm-4">
+			  <div class="button">
+				<h3>Topic 2 <span class="glyphicon glyphicon-arrow-right"></h3>
+			  </div>        
+			</div>
+			<div class="col-sm-4">
+			  <div class="button">
+				<h3>Topic 3 <span class="glyphicon glyphicon-arrow-right"></span></h3>
+			  </div>        
+			</div>
+		  </div>
+		</div>
+    </div>
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="/paperjs/paper-full.min.js"></script>
+    <script src="/paperjs/app.js"></script>
+
+</body>
+
+</html>
