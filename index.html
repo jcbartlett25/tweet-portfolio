@@ -20,18 +20,14 @@
         <canvas id="mainCanvas" keepalive="true"></canvas>
         <div id="header" class="text-center">
             <h1>Tweet Portfolio</h1>
-			<h2>Start organizing your tweets after a search below...</h2>
-			
-            <a href="/mainpage/">
-                <button type="button" class="btn btn-lg btn-primary" id="cta">Search</button>
-            </a>
-			
+			<h2>Start organizing your tweets after a search...</h2>
+            <a class="btn btn-xl" href="#search">Search</a>
         </div>
     </div>
 
     <div id="trending" class="row">
         <div class="container">
-			<h2>Trending Searches</h2>
+			<h3>Trending Searches</h3>
         </div>
 		<div class="container">
 		  <div class="row">
@@ -54,8 +50,15 @@
 		</div>
     </div>
 	
+	<div id="search">
+    <form>
+        <input type="search" value="" placeholder="Type username or keyword..." />
+    </form>
+	</div>
+	
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/paper-full.min.js"></script>
+	<script src="js/searchhomepage.js"></script>
     <script src="js/circles.js"></script>
 
 </body>
