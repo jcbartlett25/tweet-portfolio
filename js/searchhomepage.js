@@ -1,3 +1,5 @@
+//https://bootsnipp.com/snippets/featured/full-screen-search
+
 $(function () {
     $('a[href="#search"]').on('click', function(event) {
         event.preventDefault();

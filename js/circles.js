@@ -1,3 +1,5 @@
+//http://paperjs.org/examples/
+
 paper.install(window);
 $(document).ready(function () {
    
@@ -10,7 +12,7 @@ $(document).ready(function () {
     $(window).resize(setCanvas);
     setCanvas();
 
-    var circles = 200;
+    var circles = 250;
 
     for (var i = 0; i < circles; i++) {
         var path = new Path.Circle({
