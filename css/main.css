@@ -27,7 +27,8 @@ h2 {
 
 h3 {
 	font-size: 3em;
-	margin-top: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 #header { 
 	padding-top: 10%;
@@ -120,3 +121,12 @@ h3 {
 	
 }
 
+.grid3 >div{
+  height: 100px;
+  background: rgba(0,0,0,.4);
+  float: none;
+  display: inline-block;
+  line-height: 100px;
+  background-clip: content-box;
+  font-size: 2em; 
+}
