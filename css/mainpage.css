@@ -371,6 +371,26 @@ a.article, a.article:hover {
 #Modal .btn{
 	font-size:0.9em;
 }
+
+.edit_cont{
+	
+	position:relative;
+	right:0px;
+	display:inline-block;
+	width:130px;
+	height:40px;
+	margin:0;
+	margin-top:2px;
+	float:right;
+	padding:0;
+	z-index:9999;
+	font-size: 0.8em;
+	cursor: pointer;
+}
+.edit_cont span{
+	font-size: 1em;
+	
+}
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */

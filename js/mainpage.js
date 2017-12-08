@@ -41,12 +41,13 @@ $(document).ready(function(){
 	context.attach('#like', [
 		{header: 'Options'},
 		{text: 'Open', href: '#'},
-		{text: 'Open in new Window', href: '#'},
+		{text: 'Rename', href: '#'},
 		{divider: true},
-		{text: 'Copy', href: '#'},
-		{text: 'Dafuq!?', href: '#'}
+		{text: 'Move to', href: '#'},
+		{text: 'Delete', href: '#'}
 	]);
 	
+	/*
 	context.attach('#like', [
 		
 		{header: 'Download'},
@@ -101,6 +102,7 @@ $(document).ready(function(){
 		]}
 	]);
 	
+	*/
 	context.settings({compress: true});
 	
 	/*
