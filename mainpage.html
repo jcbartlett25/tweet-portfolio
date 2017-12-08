@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Twitter Favorite</title>
+<!--<script src="https://unpkg.com/vue"></script>-->
+<!-- Bootstrap core CSS -->
+<!--
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+-->
+<link href="css/bootstrap.css" rel="stylesheet">
+<!--
+<link href="bootstrap3/css/bootstrap.css" rel="stylesheet">
+-->
+<!-- Custom styles for this template -->
+<link href="css/dashboard.css" rel="stylesheet">
+<!-- chen edited css-->
+<link href="css/mainpage.css" rel="stylesheet" >
+
+
+<link href="css/gijgo.css" rel="stylesheet" type="text/css" >
+<!--<link href="css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous">
+-->
+</head>
+
+<body >
+
+ <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#"><img src="images/ twitter1.png" width="35" style="margin-left:35px;" /></a>
+   
+
+        <div class="navbar-collapse" id="navbarsExampleDefault">
+          <div class="row" style="width:100%">
+          
+          <div class="col-sm-3">
+           <ul class="navbar-nav mr-auto">
+           
+              <li class="nav-item active" style="margin-top:5px;">
+              <a class="nav-link" href="#">Portfolio <span class="sr-only">(current)</span></a>
+            </li>
+           <!-- <li class="nav-item">
+              <a class="nav-link" href="#">About us</a>
+            </li>
+            -->
+          </ul>
+          </div>
+          
+          
+        
+		 
+      	 <div class="input-group col-sm-6 search_group">
+         
+		  <input type="text" class="form-control search_txt" placeholder="Search for..." aria-label="Search for..." style="border:none;">
+		   <span class="input-group-btn">
+			<button class="btn btn-secondary search_group_btn "  style="border:none;" type="button" >Search</button>
+		  </span>
+		</div>
+        
+        <div class="col-sm-3 favorite_btn">
+          <button class="btn btn-outline-success my-2 my-sm-2 search_btn" type="" href="#">Favorite Tweets</button>
+		</div>
+		
+       </div>
+       </div>
+      </nav>
+ </header>
+    
+    
+    
+    <div class="container-fluid" >
+      
+       
+       
+       <!---- left container ---- Advanced search--->
+        <div class="col-2.5 d-sm-block bg-light sidebar" style=" min-width: 270px;
+    max-width: 290px; margin-left:20px">
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <span class="nav-link" >Search In </span>
+            </li>
+            <li class="nav-item">
+				<div class="btn-group filter_btns" role="group" aria-label="Basic example">
+				  <button type="button" class="btn btn-outline-success btn_active btn_filter " style="width:50%">All Tweets</button>
+				  <button type="button" class="btn btn-outline-secondary btn_filter" style="width:50%">Favorite</button>	
+				</div>  	
+            </li>
+            <li class="nav-item">
+               <span class="nav-link" >Tweet Type </span>
+               <div class="btn-group filter_btns" role="group" aria-label="Basic example">
+              	 <button type="button" class="btn btn-outline-success btn_active btn_filter" style="width:50%">All</button>
+				  <button type="button" class="btn btn-outline-secondary  btn_filter" style="width:50%">Text</button>
+				  <button type="button" class="btn btn-outline-secondary btn_filter" style="width:50%">Image</button>	
+				   <button type="button" class="btn btn-outline-secondary btn_filter" style="width:50%">Video</button>	
+				</div>
+            </li>
+           <li class="nav-item">
+               <span class="nav-link" >Time </span>
+               
+                <div class="btn-group filter_btns" role="group" aria-label="Basic example">
+              	  <button type="button" class="btn btn-outline-success btn_active btn_filter" style="width:50%">All</button>
+				  <button type="button" class="btn btn-outline-secondary  btn_filter" style="width:50%"> 1 day</button>
+				  <button type="button" class="btn btn-outline-secondary btn_filter" style="width:50%"> 1 week</button>	
+				   <button type="button" class="btn btn-outline-secondary btn_filter" style="width:50%">1 month</button>	
+				  
+				</div>
+               
+                <div class=" filter_btns btn_filter" style="margin-top:20px; display: block;">
+				   
+					<input id="datepicker"  type="text"  aria-label="Text input with checkbox">
+				  
+				    <span class="" style="font-size:1.5em;margin-top:15px;">to</span>
+				  	<input  id="datepicker2" type="text"  aria-label="Text input with checkbox">
+				</div>
+            </li>
+            
+           <!-- <li class="nav-item" style="margin-top:85px;">
+                <span class="nav-link" >Time </span>
+                <button type="button" class="btn btn-success btn_filter filter_btns" style="padding:3px 0;">Filter The Results</button>	
+            </li>
+            -->
+              <li class="nav-item" style="margin-top:95px;">
+               
+                <button type="button" class="btn btn-success btn_filter filter_btns" style="padding:3px 0;">Filter The Results</button>	
+            </li>
+          </ul>
+		 </div>
+		 
+		<!------ center body---  twitter content--->
+		<div class="center_body">
+		 <div class="container" style="height:100%; margin-top:0px;">
+		 	<div class="main_cont" >
+		 		<ul style="">
+		 			<li class="oq b acx bku">
+		 				<img class="bkp ru uk abc" src="images/avatar.png">
+		 			<div class="or" >
+		 					<div class="bky">
+								  <small class="zc asz">4 min</small>
+								  <h6>Dave Gamache</h6>
+							</div>
+		 					<p> 						
+              					Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.	
+              					</p>
+              				<div class="bkv twitter_images" data-grid="images">
+              				<img   src="images/t1.jpg">
+              			
+              				</div>
+		 				</div>
+		 			</li>
+		 			
+		 		</ul>
+		 	
+		 	</div>
+		 	
+		 </div>
+		</div>
+		
+		<!------ favorite --->
+		 <div class="right_cont" style="height: 100%;">
+		 	<div class=" like_cont " style="height: 100%;background:#333;color:#222;">
+		 		<!---file --->
+			<div class="wrapper" >
+            <!-- Sidebar Holder -->
+            <nav id="sidebar">
+	             <ul class="list-unstyled components">
+                    <!--<p>Favorite Tweets</p> -->
+                    <h6 style="margin-left:30px;">My Favorite Tweet</h6>
+                    <li>
+                       
+                        <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false">
+                        <span class="favorite_icon glyphicon glyphicon-heart" aria-hidden="true"></span> Favorite</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu1" >
+                            <li class="favorite_list"><a>
+                            <div class="row">
+                            	<div class="col-2">
+                            		<img src="images/avatar.png" >
+                            	</div>
+                            	<div class="favorite_item_cont col-10">
+                            		<span>Dava Game</span><br />
+                            		<span class="item_content">Aenean lacinia bibendum nulla sed consectetur.v</span>
+                            	</div>
+                            </div>
+                            </a>	
+                            </li>
+                          <li class="favorite_list"><a>
+                            <div class="row">
+                            	<div class="col-2">
+                            		<img src="images/avatar.png" >
+                            	</div>
+                            	<div class="favorite_item_cont col-10">
+                            		<span>Dava Game</span><br />
+                            		<span class="item_content">Aenean lacinia bibendum nulla sed consectetur.v</span>
+                            	</div>
+                            </div>
+                            </a>	
+                           </li>
+                           
+                          <li class="favorite_list"><a>
+                            <div class="row">
+                            	<div class="col-2">
+                            		<img src="images/avatar.png" >
+                            	</div>
+                            	<div class="favorite_item_cont col-10">
+                            		<span>Dava Game</span><br />
+                            		<span class="item_content">Aenean lacinia bibendum nulla sed consectetur.v</span>
+                            	</div>
+                            </div>
+                            </a>	
+                          </li>
+                        </ul>
+                    </li>
+                  <li>
+                       
+                        <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false">
+                        <span class="favorite_icon glyphicon glyphicon-briefcase" aria-hidden="true"></span> Customer Created</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu3">
+                            <li><a href="#">Page 1</a></li>
+                            <li><a href="#">Page 2</a></li>
+                            <li><a href="#">Page 3</a></li>
+                        </ul>
+                    </li>
+                     <li>
+                       
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+                        <span class="favorite_icon glyphicon glyphicon-paperclip" aria-hidden="true"></span> Pages</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li><a href="#">Page 1<img src="images/avatar.png" width="20"></a></li>
+                            <li><a href="#">Page 2</a></li>
+                            <li><a href="#">Page 3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                
+            		</nav>
+				</div>	
+		 		
+		 		
+			</div>
+		 	
+		 </div>
+		
+		
+		
+		
+	</div><!-- end container-fluid-->
+    
+</body>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/gijgo.js" type="text/javascript"></script>
+    <script src="js/mainpage.js" type="text/javascript"></script>
+</html>
