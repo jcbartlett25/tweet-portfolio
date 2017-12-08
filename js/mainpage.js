@@ -25,3 +25,5 @@ $(document).ready(function(){
                      $('#sidebar').toggleClass('active');
                  });
              });
+
+context.attach('#like', [menuObjects]);
