@@ -1,10 +1,4 @@
-/*
- * Gijgo JavaScript Library v1.6.1
- * http://gijgo.com/
- *
- * Copyright 2014, 2017 gijgo.com
- * Released under the MIT license
- */
+
 if (typeof (gj) === 'undefined') {
     gj = {};
 }

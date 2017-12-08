@@ -1622,6 +1622,8 @@ ul.gj-list-md li.disabled>[data-role="wrapper"]>[data-role="expander"] {
     border-radius: 4px;
     padding: 4px;
     background-color: #FFFFFF;
+	z-index:9999;
+	font:0.7em;
 }
 
 .gj-calendar-bootstrap table tr td div,
