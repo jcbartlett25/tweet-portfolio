@@ -20,11 +20,13 @@ var context = context || (function () {
 		
 		options = $.extend({}, options, opts);
 		
+		
 		$(document).on('click', 'html', function () {
-			$('.dropdown-context').fadeOut(options.fadeSpeed, function(){
+			$('.dropdown-context').hide(options.fadeSpeed, function(){
 				$('.dropdown-context').css({display:''}).find('.drop-left').removeClass('drop-left');
 			});
 		});
+		
 		if(options.preventDoubleContext){
 			$(document).on('contextmenu', '.dropdown-context', function (e) {
 				e.preventDefault();
@@ -116,13 +118,13 @@ var context = context || (function () {
 				if ((e.pageY + autoH) > $('html').height()) {
 					$dd.addClass('dropdown-context-up').css({
 						top: e.pageY - 20 - autoH,
-						left: e.pageX - 13
-					}).fadeIn(options.fadeSpeed);
-				} else {
+						left: e.pageX - 150
+					}).show(options.fadeSpeed);
+				}else {
 					$dd.css({
 						top: e.pageY + 10,
-						left: e.pageX - 13
-					}).fadeIn(options.fadeSpeed);
+						left: e.pageX - 150
+					}).show(options.fadeSpeed);
 				}
 			}
 		});
