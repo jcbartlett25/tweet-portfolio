@@ -364,6 +364,13 @@ a.article, a.article:hover {
 	list-style: none;
 	
 }
+#Modal{
+	top:100px;
+	font-size: 0.9em;
+}
+#Modal .btn{
+	font-size:0.9em;
+}
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
