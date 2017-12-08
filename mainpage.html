@@ -106,7 +106,7 @@
 				</div>
                
                 <div class=" filter_btns btn_filter" style="margin-top:20px; display: block;">
-				   
+				   <span class="" style="font-size:1.5em;margin-top:15px;">From</span>
 					<input id="datepicker"  type="text"  aria-label="Text input with checkbox">
 				  
 				    <span class="" style="font-size:1.5em;margin-top:15px;">to</span>
@@ -119,12 +119,44 @@
                 <button type="button" class="btn btn-success btn_filter filter_btns" style="padding:3px 0;">Filter The Results</button>	
             </li>
             -->
-              <li class="nav-item" style="margin-top:95px;">
+              <li class="nav-item" style="margin-top:115px;">
                
                 <button type="button" class="btn btn-success btn_filter filter_btns" style="padding:3px 0;">Filter The Results</button>	
             </li>
           </ul>
 		 </div>
+		
+		
+		<!------Modal , show where to put the tweets---> 
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="font-size:0.9em;">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Add  &nbsp; tweet to your lists</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<form>
+				  <div class="form-group">
+					<label for="recipient-name" class="form-control-label">Choose a List</label>
+					<input type="text" class="form-control" id="recipient-name">
+				  </div>
+				  <div class="form-group">
+					<label for="message-text" class="form-control-label">Message:</label>
+					<textarea class="form-control" id="message-text"></textarea>
+				  </div>
+				</form>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+				<button type="button" class="btn btn-primary btn-success">Add to List</button>
+			  </div>
+			</div>
+		  </div>
+	</div>
+		 
 		 
 		<!------ center body---  twitter content--->
 		<div class="center_body">
@@ -135,7 +167,9 @@
 		 				<img class="bkp ru uk abc" src="images/avatar.png">
 		 			<div class="or" >
 		 					<div class="bky">
-								  <small class="zc asz">4 min</small>
+							  <button class="zc asz btn btn-outline-secondary btn_self" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+								   <span class="glyphicon glyphicon-heart" ></span> Add
+								  </button>
 								  <h6>Dave Gamache</h6>
 							</div>
 		 					<p> 						
@@ -214,9 +248,43 @@
                         <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false">
                         <span class="favorite_icon glyphicon glyphicon-briefcase" aria-hidden="true"></span> Customer Created</a>
                         <ul class="collapse list-unstyled" id="pageSubmenu3">
-                            <li><a href="#">Page 1</a></li>
-                            <li><a href="#">Page 2</a></li>
-                            <li><a href="#">Page 3</a></li>
+                           <li class="favorite_list"><a>
+                            <div class="row">
+                            	<div class="col-2">
+                            		<img src="images/avatar.png" >
+                            	</div>
+                            	<div class="favorite_item_cont col-10">
+                            		<span>Dava Game</span><br />
+                            		<span class="item_content">Aenean lacinia bibendum nulla sed consectetur.v</span>
+                            	</div>
+                            </div>
+                            </a>	
+                            </li>
+                          <li class="favorite_list"><a>
+                            <div class="row">
+                            	<div class="col-2">
+                            		<img src="images/avatar.png" >
+                            	</div>
+                            	<div class="favorite_item_cont col-10">
+                            		<span>Dava Game</span><br />
+                            		<span class="item_content">Aenean lacinia bibendum nulla sed consectetur.v</span>
+                            	</div>
+                            </div>
+                            </a>	
+                           </li>
+                           
+                          <li class="favorite_list"><a>
+                            <div class="row">
+                            	<div class="col-2">
+                            		<img src="images/avatar.png" >
+                            	</div>
+                            	<div class="favorite_item_cont col-10">
+                            		<span>Dava Game</span><br />
+                            		<span class="item_content">Aenean lacinia bibendum nulla sed consectetur.v</span>
+                            	</div>
+                            </div>
+                            </a>	
+                          </li>
                         </ul>
                     </li>
                      <li>
@@ -224,9 +292,7 @@
                         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
                         <span class="favorite_icon glyphicon glyphicon-paperclip" aria-hidden="true"></span> Pages</a>
                         <ul class="collapse list-unstyled" id="pageSubmenu">
-                            <li><a href="#">Page 1<img src="images/avatar.png" width="20"></a></li>
-                            <li><a href="#">Page 2</a></li>
-                            <li><a href="#">Page 3</a></li>
+                            
                         </ul>
                     </li>
                 </ul>
