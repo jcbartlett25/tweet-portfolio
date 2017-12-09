@@ -1,8 +1,10 @@
-$(document).ready(function(){
-	/* datepicker */
-	var cb = new Codebird;
+var cb = new Codebird;
     cb.setConsumerKey("iJQ8FLDCqzypnRjGWq1uyeJV5", "R2CMY74KC1ehtRJTLgvSSE5jPyYqGTZVKgwxuUZHz7S0P2oJa4");
     cb.setToken("938214222042943488-6HPeVLlBXDVmmPUHipaWVzIIhLUYkKR", "lxMZ8Pd7rNVwgVORVJkDVXvTXqmafY1WPxVArRl0Azg63");
+
+$(document).ready(function(){
+	/* datepicker */
+	
     cb.__call(
         "collections_list",
         {
@@ -26,74 +28,11 @@ $(document).ready(function(){
                 // console.log(collections);
                 $("#favorites").append(collections);
                 $("#folder_name").append("<option value ="+ timeline_id +">"+each_collection.name+"</option>"); 
+                //console.log(timeline_id);
                 console.log(timeline_id);
-                cb.__call(
-                    "collections_entries",
-                    {
-                        id: timeline_id
-                    },
-                    function (reply2, rate, err) {
-                        console.log(page);
-                        // var tweet_text = new Array();
-                        // var user_name = new Array();
-                        // var user_profile_img = new Array();
-                        var parent = document.getElementById(subpage);
-                        for (var i = 0; i < reply2.response.timeline.length; i ++) {
-                            var tweet_id = reply2.response.timeline[i].tweet.id;
-                            var each_tweet = reply2.objects.tweets[tweet_id];
-                            var user_id = each_tweet.user.id;
-                            var a = document.createElement('a');
-                            var li = document.createElement('li');
-                            li.className = 'favorite_list';
-                            li.id = tweet_id;
-                            var div1 = document.createElement('div');
-                            div1.className = 'row';
-                            var div2 = document.createElement('div');
-                            div2.className = 'col-2';
-                            var img = document.createElement('img');
-                            img.src = reply2.objects.users[user_id].profile_image_url;
-                            var div3 = document.createElement('div');
-                            div3.className = 'favorite_item_cont col-10';
-                            var span1 = document.createElement('span');
-                            span1.innerHTML = reply2.objects.users[user_id].name;;
-                            var span2 = document.createElement('span');
-                            span2.className = 'item_content';
-                            span2.innerHTML = reply2.objects.tweets[tweet_id].text;
-                            var br=document.createElement('br'); 
-                            span1.appendChild(br);
-                            li.appendChild(a);
-                            a.appendChild(div1);
-                            div1.appendChild(div2);
-                            div1.appendChild(div3);
-                            div2.appendChild(img);
-                            div3.appendChild(span1);
-                            div3.appendChild(span2);
-                            parent.appendChild(li);
-                            
-                            
-                        //     // var user_name = reply.objects.users[user_id].name;
-                        //     // var user_profile_img = reply2.objects.users[user_id].profile_image_url;
-                        //     // each_tweet["user_name"] = reply2.objects.users[user_id].name;
-                        //     // each_tweet["user_profile_img"] = reply2.objects.users[user_id].profile_image_url;
-                        //     //each_tweet["page"] = page;
-                        //     // console.log(each_tweet);
-                        //     // var tweets = ich.submenu(each_tweet);
-                        //     // $("#submenu").append(tweets);
-                        //     //var user_name[i] = reply.objects.users[user_id].name;
-                        //     //var user_profile_img[i] = reply.objects.users[user_id].profile_image_url;
-                        //     //var tweet_text[i] = reply.objects.tweets[tweet_id].text;
-                         }
-                        // each_collection["user_name"] = user_name;
-                        // each_collection["user_profile_img"] = user_profile_img;
-
-                        // each_tweet["tweet_text"] = tweet_text;
-                        // each_tweet["user_name"] = user_name;
-                        // each_tweet["user_profile_img"] = user_profile_img;
-                        // each_tweet["page"] = page;
-
-                    }
-                    
-                );
+                console.log(subpage);
+                addtweets(timeline_id, subpage);
+                
             }
                 
         }
@@ -120,5 +59,52 @@ $(document).ready(function(){
     });
 
 });
+
+function addtweets(timeline_id, subpage) {
+    cb.__call(
+    "collections_entries",
+    {
+        id: timeline_id
+    },
+    function (reply2, rate, err) {
+        //console.log(timeline_id);
+        var parent = document.getElementById(subpage);
+        for (var i = 0; i < reply2.response.timeline.length; i ++) {
+            var tweet_id = reply2.response.timeline[i].tweet.id;
+            var each_tweet = reply2.objects.tweets[tweet_id];
+            var user_id = each_tweet.user.id;
+            var a = document.createElement('a');
+            var li = document.createElement('li');
+            li.className = 'favorite_list';
+            li.id = tweet_id;
+            var div1 = document.createElement('div');
+            div1.className = 'row';
+            var div2 = document.createElement('div');
+            div2.className = 'col-2';
+            var img = document.createElement('img');
+            img.src = reply2.objects.users[user_id].profile_image_url;
+            var div3 = document.createElement('div');
+            div3.className = 'favorite_item_cont col-10';
+            var span1 = document.createElement('span');
+            span1.innerHTML = reply2.objects.users[user_id].name;;
+            var span2 = document.createElement('span');
+            span2.className = 'item_content';
+            span2.innerHTML = reply2.objects.tweets[tweet_id].text;
+            var br=document.createElement('br'); 
+            span1.appendChild(br);
+            li.appendChild(a);
+            a.appendChild(div1);
+            div1.appendChild(div2);
+            div1.appendChild(div3);
+            div2.appendChild(img);
+            div3.appendChild(span1);
+            div3.appendChild(span2);
+            parent.appendChild(li);
+         }
+
+    }
+    
+);
+}
 
 
