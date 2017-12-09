@@ -1,4 +1,4 @@
-"use strict";
+
 /**********************/
 /* created by Fujunku Chen ***/
 /****** 12-06-2017   *******/
@@ -18,6 +18,8 @@ $(document).ready(function(){
 	
 	
 });
+
+
 
 
  $(document).ready(function () {
