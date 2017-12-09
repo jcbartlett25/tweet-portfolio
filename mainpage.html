@@ -17,6 +17,8 @@
 <!-- chen edited css-->
 <link href="css/mainpage.css" rel="stylesheet" >
 
+<!--- right click --->
+<link href="css/context.standalone.css" rel="stylesheet" >
 
 <link href="css/gijgo.css" rel="stylesheet" type="text/css" >
 <!--<link href="css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous">
@@ -141,7 +143,7 @@
 			  <div class="modal-body">
 				<form>
 				  <div class="form-group">
-					<label for="recipient-name" class="form-control-label">Choose a List</label>
+					<label for="recipient-name" class="form-control-label">Choose a Collection</label>
 						<select class="form-control" id="folder_name">
 						  <option>Favorite</option>
 						  <option>Customer Created</option>
@@ -150,14 +152,8 @@
 
 						</select>
 				  </div>
-				  <div class="form-group">
-					<label for="message-text" class="form-control-label">Name</label>
-					<input class="form-control" id="message-text" value="The name and information of the tweets" />
-				  </div>
-				  <div class="form-group">
-					<label for="message-text" class="form-control-label">Description:</label>
-					<input class="form-control" id="message-text" />
-				  </div>
+				  
+				  
 				</form>
 			  </div>
 			  <div class="modal-footer">
@@ -197,19 +193,29 @@
 		
 		<!-- favorite -->
 		 <div class="right_cont" style="height: 100%;">
-		 	<div class=" like_cont " style="height: 100%;background:#333;color:#222;">
-		 		<!---file -->
+
+		 	<div class=" like_cont " style="height: 100%;background:#333;color:#222;" id="like">
+		 		<!---file --->
 			<div class="wrapper" >
             <!-- Sidebar Holder -->
             <nav id="sidebar">
 	             <ul class="list-unstyled components">
                     <!--<p>Favorite Tweets</p> -->
+
                     <h6 style="margin-left:30px;">My Favorite Tweets</h6>
-                    <li>
-                       
+                    <li id = "favorites">
+                        <!-- <div class="edit_cont" style="display:inline-block;">
+                         <span class="btn btn-primary"><span class="glyphicon glyphicon-pencil" ></span>Rename</span>
+                         <span class="btn btn-primary delete_icon"><span class="glyphicon glyphicon-trash" ></span></span>
+                        </div>
                         <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false">
-                        <span class="favorite_icon glyphicon glyphicon-heart" aria-hidden="true"></span> Favorite</a>
-                        <ul class="collapse list-unstyled" id="pageSubmenu1" >
+                        
+                        <span class="favorite_icon glyphicon glyphicon-heart" aria-hidden="true"></span> Favorite
+                       
+                        </a> -->
+                        <!--edit list name, delete list -->
+                        
+<!--                         <ul class="collapse list-unstyled" id="pageSubmenu1" >
                             <li class="favorite_list"><a>
                             <div class="row">
                             	<div class="col-2">
@@ -299,7 +305,7 @@
                         <span class="favorite_icon glyphicon glyphicon-paperclip" aria-hidden="true"></span> Pages</a>
                         <ul class="collapse list-unstyled" id="pageSubmenu">
                             
-                        </ul>
+                        </ul> -->
                     </li>
                 </ul>
 
@@ -327,5 +333,32 @@
     <script src="js/gijgo.js" type="text/javascript"></script>
     <script src="js/codebird.js" type="text/javascript"></script>
     <script src="js/twitter.js" type="text/javascript"></script>
+    <script src="js/context.js" ></script>
     <script src="js/mainpage.js" type="text/javascript"></script>
+    <script src="js/codebird.js" type="text/javascript"></script>
+    <script src="js/ICanHaz.min.js" ></script>
+    <script src="js/test.js" type="text/javascript"></script>
+    <script id = "favorites" type="text/html">
+      <li id = {{collection_id}} >
+      <div class="edit_cont" style="display:inline-block;">
+       <span class="btn btn-primary"><span class="glyphicon glyphicon-pencil" ></span>Rename</span>
+       <span class="btn btn-primary delete_icon"><span class="glyphicon glyphicon-trash" ></span></span>
+      </div>
+      <a href={{page}} data-toggle="collapse" aria-expanded="false">
+        <span class="favorite_icon glyphicon glyphicon-heart" aria-hidden="true"></span> {{{name}}}</a>
+      <ul class="collapse list-unstyled" id={{subpage}} >
+        <!-- <li class = "favorite_list">
+          <div class="row">
+          <div class="col-2">
+            <img src={{user_profile_img}} >
+          </div>
+          <div class="favorite_item_cont col-10">
+            <span>{{user_name}}</span><br />
+            <span class="item_content">{{text}}</span>
+          </div>
+        </div>
+        </li> -->
+      </ul>
+      </li>
+    </script>
 </html>
