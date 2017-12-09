@@ -45,6 +45,7 @@ $(document).ready(function(){
                             var a = document.createElement('a');
                             var li = document.createElement('li');
                             li.className = 'favorite_list';
+                            li.id = tweet_id;
                             var div1 = document.createElement('div');
                             div1.className = 'row';
                             var div2 = document.createElement('div');
