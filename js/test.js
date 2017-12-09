@@ -17,12 +17,15 @@ $(document).ready(function(){
                 var each_collection = reply.objects.timelines[timeline_id];
                 var page = "#pageSubmenu" + i;
                 var subpage = "pageSubmenu" + i;
+                var name = each_collection.name;
                 each_collection["page"] = "#pageSubmenu" + i;
-                each_collection["subpage"] = "pageSubmenu" + i;;
+                each_collection["subpage"] = "pageSubmenu" + i;
+                each_collection["collection_id"] = timeline_id;
                 console.log(each_collection.name);
                 var collections = ich.favorites(each_collection);
                 // console.log(collections);
                 $("#favorites").append(collections);
+                $("#folder_name").append("<option value ="+ timeline_id +">"+each_collection.name+"</option>"); 
                 console.log(timeline_id);
                 cb.__call(
                     "collections_entries",
@@ -94,6 +97,27 @@ $(document).ready(function(){
                 
         }
     );
+
+    $(document).on("click", ".delete_icon", function(){
+        
+        var collection_id = $(this).closest('li').attr('id');
+        //var collection_id = parent.attr('id');
+        console.log(collection_id);
+        cb.__call(
+            "collections_destroy",
+            {
+                //name: 'FeinerFans',
+                id : collection_id
+                // screen_name: 'Portfolio'
+            },
+            function(reply, rate, err) {
+                if (reply == true) {
+                    $("#" + collection_id).remove();
+                }
+            }
+        );
+    });
+
 });
 
 
