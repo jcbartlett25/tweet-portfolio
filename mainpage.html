@@ -165,13 +165,41 @@
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
-				<button type="button" class="btn btn-primary btn-success" id = "add_to_list">Add to List</button>
+				<button type="button" class="btn btn-primary btn-success" id = "add_to_list" data-dismiss="modal">Add to List</button>
         <span style="display: none" id="tweet_id_span"></span>
 			  </div>
 			</div>
 		  </div>
 	</div>
 		 
+		 
+	<!--Modal , Create a list--> 
+	<div class="modal fade" id="createList" tabindex="-1" role="dialog" aria-labelledby="example1" aria-hidden="true" style="font-size:0.9em;">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Create a List</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<form>
+				  <div class="form-group">
+					<input class="form-control" type="text" placeholder="Input the list name" />
+				  </div>
+		
+				</form>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+				<button type="button" class="btn btn-primary btn-success" id = "create_list" data-dismiss="modal">
+					Create List</button>
+       <!-- <span style="display: none" id="tweet_id_span"></span>  -->
+			  </div>
+			</div>
+		  </div>
+	</div>
 		 
 		<!-- center body  twitter content-->
 		<div class="center_body">
@@ -331,7 +359,7 @@
 		 	<!--- edit button;  bottom-->	
 		 	<div class="btn_buttom_cont">
 		 		
-		 		<button class="btn btn-outline-success btn_bottom" ><span class="glyphicon glyphicon-plus" ></span>Create a List</button>
+		 		<button class="btn btn-outline-success btn_bottom" data-toggle="modal" data-target="#createList"><span class="glyphicon glyphicon-plus" ></span>Create a List</button>
 		 		<button class="btn btn-outline-success btn_bottom" ><span class="glyphicon glyphicon-edit" ></span>Edit</button>
 		 	</div>	
 			</div>
