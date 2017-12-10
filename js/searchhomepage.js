@@ -12,5 +12,5 @@ $(function () {
             $(this).removeClass('open');
         }
     });
-    
+	
 });

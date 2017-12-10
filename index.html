@@ -49,15 +49,21 @@
     </div>
 	
 	<div id="search">
-    <form>
+    <form action="/mainpage.html">
         <input type="search" value="" placeholder="Type query then press enter..." />
-    </form>
+    </form>			
 	</div>
 	
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/paper-full.min.js"></script>
 	<script src="js/searchhomepage.js"></script>
     <script src="js/circles.js"></script>
+	<script src="js/twitter.js"></script>
+	<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "/mainpage.html";
+    };
+	</script>
 
 </body>
 
