@@ -1,10 +1,12 @@
 var cb = new Codebird;
-    cb.setConsumerKey("iJQ8FLDCqzypnRjGWq1uyeJV5", "R2CMY74KC1ehtRJTLgvSSE5jPyYqGTZVKgwxuUZHz7S0P2oJa4");
-    cb.setToken("938214222042943488-6HPeVLlBXDVmmPUHipaWVzIIhLUYkKR", "lxMZ8Pd7rNVwgVORVJkDVXvTXqmafY1WPxVArRl0Azg63");
+    cb.setConsumerKey("VCLAOVS6uW1mWcle3APB7essM", "h57Ky46shztmhGUMiZZHdCGZecXGCitQSdqT8Tm9rJOvBwUmfN");
+    cb.setToken("938214222042943488-c2o6HMZVO2S9FRZywviN0Zr74g7cTMC", "rmIgtkJ1304JaJlaa2v4xkgpb7KPjH4wHoI7auERWUDi8");
 
 $(document).ready(function(){
 	/* datepicker */
-	
+	var cb = new Codebird;
+    cb.setConsumerKey("VCLAOVS6uW1mWcle3APB7essM", "h57Ky46shztmhGUMiZZHdCGZecXGCitQSdqT8Tm9rJOvBwUmfN");
+    cb.setToken("938214222042943488-c2o6HMZVO2S9FRZywviN0Zr74g7cTMC", "rmIgtkJ1304JaJlaa2v4xkgpb7KPjH4wHoI7auERWUDi8");
     cb.__call(
         "collections_list",
         {
@@ -31,7 +33,7 @@ $(document).ready(function(){
         }
     );
 
-    $(document).on("click", ".delete_icon", function(){
+    $(document).on("click", ".delete_icon_col", function(){
         
         var collection_id = $(this).closest('li').attr('id');
         //var collection_id = parent.attr('id');
@@ -44,9 +46,35 @@ $(document).ready(function(){
                 // screen_name: 'Portfolio'
             },
             function(reply, rate, err) {
-                if (reply == true) {
                     $("#" + collection_id).remove();
-                }
+                    $("select#folder_name option").filter("[value="+collection_id+"]").remove();
+            }
+        );
+    });
+
+    $(document).on("click", ".delete_icon_cont", function(){
+        var tweet = $(this).closest("li");
+        var tweet_id = tweet.attr('id');
+        var collection_id = tweet.parents("li")[0].attributes.id;
+        
+        console.log(collection_id);
+        cb.__call(
+            "collections_entries_remove",
+            {
+                //name: 'FeinerFans',
+                "id" : collection_id,
+                "tweet_id": tweet_id
+                // changes: [
+                //     { 
+                //         op: "remove",
+                //         tweet_id: tweet_id
+                //     }
+                // ]
+                //tweet_id: tweet_id
+                // screen_name: 'Portfolio'
+            },
+            function(reply, rate, err) {
+                $("#" + tweet_id).remove();
             }
         );
     });
@@ -61,8 +89,17 @@ $(document).ready(function(){
             "collections_entries_add",
             {
                 //name: 'FeinerFans',
-                id : collection,
-                tweet_id : tweet
+                "tweet_id": "939809401006968832",
+                "id" : "custom-939808090907709440"
+                
+                // "op": "add"
+                // "changes" : [
+                //     {
+                //         "op": "add",
+                //         "tweet_id": tweet
+                //     }
+                // ]
+                //"tweet_id" : tweet
                 // screen_name: 'Portfolio'
             },
             function(reply, rate, err) {
@@ -87,6 +124,30 @@ $(document).ready(function(){
                     );
                 }
                 
+            }
+        );
+    });
+
+    $(document).on("click", "#create_list", function(){
+        var collection_name = $("#new_collection_name").val();
+        var index = $("#favorites").children("li").length;
+        cb.__call(
+            "collections_create",
+            {
+                name: collection_name
+            },
+            function(reply, rate, err) {
+                //var timeline_id = reply.response.results[i].timeline_id;
+                var each_collection = reply.response;
+                
+                each_collection["page"] = "#pageSubmenu" + index-1;
+                each_collection["subpage"] = "pageSubmenu" + index-1;
+                each_collection["collection_id"] = reply.response.timeline_id;
+                each_collection["name"] = collection_name;
+                var collections = ich.favorites(each_collection);
+                console.log(each_collection);
+                $("#favorites").append(collections);
+                $("#folder_name").append("<option value ="+ reply.response.timeline_id +">"+each_collection.name+"</option>"); 
             }
         );
     });
@@ -119,33 +180,6 @@ function addtweets(timeline_id, subpage) {
             var text = reply2.objects.tweets[tweet_id].text;
             addtweet(parent, tweet_id, img_src, name, text);
 
-            // var a = document.createElement('a');
-            // var li = document.createElement('li');
-            // li.className = 'favorite_list';
-            // li.id = tweet_id;
-            // var div1 = document.createElement('div');
-            // div1.className = 'row';
-            // var div2 = document.createElement('div');
-            // div2.className = 'col-2';
-            // var img = document.createElement('img');
-            // img.src = reply2.objects.users[user_id].profile_image_url;
-            // var div3 = document.createElement('div');
-            // div3.className = 'favorite_item_cont col-10';
-            // var span1 = document.createElement('span');
-            // span1.innerHTML = reply2.objects.users[user_id].name;;
-            // var span2 = document.createElement('span');
-            // span2.className = 'item_content';
-            // span2.innerHTML = reply2.objects.tweets[tweet_id].text;
-            // var br=document.createElement('br'); 
-            // span1.appendChild(br);
-            // li.appendChild(a);
-            // a.appendChild(div1);
-            // div1.appendChild(div2);
-            // div1.appendChild(div3);
-            // div2.appendChild(img);
-            // div3.appendChild(span1);
-            // div3.appendChild(span2);
-            // parent.appendChild(li);
          }
         }    
     );

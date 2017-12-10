@@ -186,13 +186,13 @@
 			  <div class="modal-body">
 				<form>
 				  <div class="form-group">
-					<input class="form-control" type="text" placeholder="Input the list name" />
+					<input class="form-control" id="new_collection_name" type="text" placeholder="Input the list name" />
 				  </div>
 		
 				</form>
 			  </div>
 			  <div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
 				<button type="button" class="btn btn-primary btn-success" id = "create_list" data-dismiss="modal">
 					Create List</button>
        <!-- <span style="display: none" id="tweet_id_span"></span>  -->
@@ -389,7 +389,7 @@
       <li id = {{collection_id}} >
       <div class="edit_cont" style="display:none;">
        <span class="btn btn-primary"><span class="glyphicon glyphicon-pencil" ></span>Rename</span>
-       <span class="btn btn-danger delete_icon"><span class="glyphicon glyphicon-trash" ></span></span>
+       <span class="btn btn-danger delete_icon_col"><span class="glyphicon glyphicon-trash" ></span></span>
       </div>
       <a href={{page}} data-toggle="collapse" aria-expanded="false">
         <span class="favorite_icon glyphicon glyphicon-heart" aria-hidden="true"></span> {{{name}}}</a>
