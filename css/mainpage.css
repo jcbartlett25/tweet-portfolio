@@ -333,8 +333,9 @@ a.article, a.article:hover {
 .favorite_item_cont{
 	display: inline-block;
 	overflow:hidden;
-	
+	font-size:0.8em;
 	margin:0;
+	margin-top:-3px;
 	height:50px;
 	
 }
@@ -394,9 +395,8 @@ a.article, a.article:hover {
 	
 }
 
-.delete_icon{
-	
-	
+.btn-success{
+	color:#fff;
 }
 
 .delete_icon_cont{

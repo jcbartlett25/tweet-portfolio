@@ -171,6 +171,19 @@ function addtweet(parent, tweet_id, img_src, name, text) {
     span2.className = 'item_content';
     span2.innerHTML = text;
     var br=document.createElement('br'); 
+	
+	//kuer --delete btn
+	var div_delete =document.createElement('div');
+	div_delete.className='delete_icon_cont';
+	var span_delete1 = document.createElement('span');
+	var span_delete2 = document.createElement('span');
+	span_delete1.className = 'btn btn-danger btn-sm delete_icon';
+	span_delete2.className = 'glyphicon glyphicon-trash';
+	
+	div_delete.appendChild(span_delete1);
+	span_delete1.appendChild(span_delete2);
+	div_delete.style.display = 'none';
+	
     span1.appendChild(br);
     li.appendChild(a);
     a.appendChild(div1);
@@ -179,7 +192,31 @@ function addtweet(parent, tweet_id, img_src, name, text) {
     div2.appendChild(img);
     div3.appendChild(span1);
     div3.appendChild(span2);
+	a.appendChild(div_delete);
     parent.appendChild(li);
 }
 
+var Is_edit_btn =true;
+function editFavorite()
+{
+	var div1 = $('.delete_icon_cont');
+	var div2 =$('.edit_cont');
+	var icon =$('#edit_favorite_twitter');
+	if(Is_edit_btn){
+		Is_edit_btn = false;
+		
+		div1.show();
+		div2.show();
+		icon.addClass('btn-success');
+		icon.removeClass('btn-outline-success');
+		//icon.innerHTML ='xxxx';
+		
+	}else{
+		Is_edit_btn = true;
+		icon.removeClass('btn-success');
+		icon.addClass('btn-outline-success');
+		div1.hide();
+		div2.hide();
+	}
+}
 
