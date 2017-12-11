@@ -1,12 +1,12 @@
 var cb = new Codebird;
-    cb.setConsumerKey("VCLAOVS6uW1mWcle3APB7essM", "h57Ky46shztmhGUMiZZHdCGZecXGCitQSdqT8Tm9rJOvBwUmfN");
-    cb.setToken("938214222042943488-c2o6HMZVO2S9FRZywviN0Zr74g7cTMC", "rmIgtkJ1304JaJlaa2v4xkgpb7KPjH4wHoI7auERWUDi8");
+cb.setConsumerKey("VCLAOVS6uW1mWcle3APB7essM", "h57Ky46shztmhGUMiZZHdCGZecXGCitQSdqT8Tm9rJOvBwUmfN");
+cb.setToken("938214222042943488-c2o6HMZVO2S9FRZywviN0Zr74g7cTMC", "rmIgtkJ1304JaJlaa2v4xkgpb7KPjH4wHoI7auERWUDi8");
 
 $(document).ready(function(){
 	/* datepicker */
-	var cb = new Codebird;
-    cb.setConsumerKey("VCLAOVS6uW1mWcle3APB7essM", "h57Ky46shztmhGUMiZZHdCGZecXGCitQSdqT8Tm9rJOvBwUmfN");
-    cb.setToken("938214222042943488-c2o6HMZVO2S9FRZywviN0Zr74g7cTMC", "rmIgtkJ1304JaJlaa2v4xkgpb7KPjH4wHoI7auERWUDi8");
+	// var cb = new Codebird;
+ //    cb.setConsumerKey("VCLAOVS6uW1mWcle3APB7essM", "h57Ky46shztmhGUMiZZHdCGZecXGCitQSdqT8Tm9rJOvBwUmfN");
+ //    cb.setToken("938214222042943488-c2o6HMZVO2S9FRZywviN0Zr74g7cTMC", "rmIgtkJ1304JaJlaa2v4xkgpb7KPjH4wHoI7auERWUDi8");
     cb.__call(
         "collections_list",
         {
@@ -130,7 +130,7 @@ $(document).ready(function(){
 
     $(document).on("click", "#create_list", function(){
         var collection_name = $("#new_collection_name").val();
-        var index = $("#favorites").children("li").length;
+        //var index = $("#favorites").children("li").length;
         cb.__call(
             "collections_create",
             {
@@ -139,13 +139,11 @@ $(document).ready(function(){
             function(reply, rate, err) {
                 //var timeline_id = reply.response.results[i].timeline_id;
                 var each_collection = reply.response;
-                
-                each_collection["page"] = "#pageSubmenu" + index-1;
-                each_collection["subpage"] = "pageSubmenu" + index-1;
+                var index = $("#favorites").children("li").length-1;
+                each_collection["page"] = "#pageSubmenu" + index;
+                each_collection["subpage"] = "pageSubmenu" + index;
                 each_collection["collection_id"] = reply.response.timeline_id;
                 each_collection["name"] = collection_name;
-                var collections = ich.favorites(each_collection);
-                console.log(each_collection);
                 $("#favorites").append(collections);
                 $("#folder_name").append("<option value ="+ reply.response.timeline_id +">"+each_collection.name+"</option>"); 
             }
