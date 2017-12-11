@@ -76,8 +76,8 @@ $(document).ready(function(){
         var select = $("#folder_name option:selected");
         var collection = select.val();
         var tweet = $('#tweet_id_span').text();
-        console.log(collection);
-        console.log(tweet);
+        //console.log(collection);
+        //console.log(tweet);
         cb.__call(
             "collections_entries_curate",
             {
@@ -108,6 +108,7 @@ $(document).ready(function(){
                             var name = reply2.user.name;
                             var text = reply2.text;
                             addtweet(parent, tweet, img_src, name, text);
+                            alert('success');
                         }
                     );
                 }
@@ -126,7 +127,7 @@ $(document).ready(function(){
             function(reply, rate, err) {
                 var each_collection = reply.response;
                 var index = $("#favorites").children("li").length;
-                console.log(index); 
+                //console.log(index); 
                 each_collection["page"] = "#pageSubmenu" + index;
                 each_collection["subpage"] = "pageSubmenu" + index;
                 each_collection["collection_id"] = reply.response.timeline_id;
@@ -134,6 +135,7 @@ $(document).ready(function(){
                 var collections = ich.favorites(each_collection);
                 $("#favorites").append(collections);
                 $("#folder_name").append("<option value ="+ reply.response.timeline_id +">"+each_collection.name+"</option>"); 
+                //alert('success');
             }
         );
     });
@@ -157,19 +159,20 @@ function addtweets(timeline_id, subpage) {
         //console.log(timeline_id);
         var parent = document.getElementById(subpage);
         //console.log(reply2);
+        //console.log(reply2.response.timeline.length);
         for (var i = 0; i < reply2.response.timeline.length; i ++) {
             var tweet_id = reply2.response.timeline[i].tweet.id;
-            console.log(reply2.objects.length);
-            console.log(reply2.objects.tweets);
-            var each_tweet = reply2.objects.tweets[tweet_id];
-            //console.log(each_tweet);
-            if (each_tweet) {
+            if ("tweets" in reply2.objects) {
+                var each_tweet = reply2.objects.tweets[tweet_id];
                 var user_id = each_tweet.user.id;
+                console.log(user_id);
                 var img_src = reply2.objects.users[user_id].profile_image_url;
                 var name = reply2.objects.users[user_id].name;
                 var text = reply2.objects.tweets[tweet_id].text;
                 addtweet(parent, tweet_id, img_src, name, text);
+                //console.log('writ');
             }
+            
             
 
          }
