@@ -10,9 +10,7 @@ $(document).ready(function(){
     cb.__call(
         "collections_list",
         {
-            //name: 'FeinerFans',
             user_id: '938214222042943488'
-            // screen_name: 'Portfolio'
         },
         function (reply, rate, err) {
             for (var i = 0; i < reply.response.results.length; i ++) {
@@ -36,18 +34,15 @@ $(document).ready(function(){
     $(document).on("click", ".delete_icon_col", function(){
         
         var collection_id = $(this).closest('li').attr('id');
-        //var collection_id = parent.attr('id');
         //console.log(collection_id);
         cb.__call(
             "collections_destroy",
             {
-                //name: 'FeinerFans',
                 id : collection_id
-                // screen_name: 'Portfolio'
             },
             function(reply, rate, err) {
-                    $("#" + collection_id).remove();
-                    $("select#folder_name option").filter("[value="+collection_id+"]").remove();
+                $("#" + collection_id).remove();
+                $("select#folder_name option").filter("[value="+collection_id+"]").remove();
             }
         );
     });
@@ -57,14 +52,10 @@ $(document).ready(function(){
         var tweet_id = tweet.attr('id');
         var collection_id = tweet.parents("li")[0].attributes.id.nodeValue;
         
-        console.log(collection_id);
-        console.log(tweet_id);
-        //cb.setConsumerKey("VCLAOVS6uW1mWcle3APB7essM", "h57Ky46shztmhGUMiZZHdCGZecXGCitQSdqT8Tm9rJOvBwUmfN");
-        //cb.setToken("938214222042943488-c2o6HMZVO2S9FRZywviN0Zr74g7cTMC", "rmIgtkJ1304JaJlaa2v4xkgpb7KPjH4wHoI7auERWUDi8");
+        //console.log(collection_id);
         cb.__call(
             "collections_entries_curate",
             {
-                //name: 'FeinerFans',
                 "id" : collection_id,
                 //"tweet_id": tweet_id
                 "changes": [
@@ -73,8 +64,6 @@ $(document).ready(function(){
                         "tweet_id": tweet_id
                     }
                 ]
-                //tweet_id: tweet_id
-                // screen_name: 'Portfolio'
             },
             function(reply, rate, err) {
                 $("#" + tweet_id).remove();
@@ -87,23 +76,20 @@ $(document).ready(function(){
         var select = $("#folder_name option:selected");
         var collection = select.val();
         var tweet = $('#tweet_id_span').text();
-        //console.log(select.val());
+        console.log(collection);
+        console.log(tweet);
         cb.__call(
-            "collections_entries_curate",
+            "collections_entries_add",
             {
-                //name: 'FeinerFans',
-                //"tweet_id": "939809401006968832",
-                //"id" : "custom-939808090907709440"
                 "id": collection,
                 // "op": "add"
-                "changes" : [
-                    {
-                        "op": "add",
-                        "tweet_id": tweet
-                    }
-                ]
-                //"tweet_id" : tweet
-                // screen_name: 'Portfolio'
+                // "changes" : [
+                //     {
+                //         "op": "add",
+                //         "tweet_id": tweet
+                //     }
+                // ]
+                "tweet_id" : tweet
             },
             function(reply, rate, err) {
                 if (err) {
@@ -113,9 +99,7 @@ $(document).ready(function(){
                     cb.__call(
                         "statuses_show_ID",
                         {
-                            //name: 'FeinerFans',
                             id : tweet
-                            // screen_name: 'Portfolio'
                         },
                         function(reply2, rate, err) {
                             var parent = $("#"+collection).children('ul')[0];
@@ -133,14 +117,12 @@ $(document).ready(function(){
 
     $(document).on("click", "#create_list", function(){
         var collection_name = $("#new_collection_name").val();
-        //var index = $("#favorites").children("li").length;
         cb.__call(
             "collections_create",
             {
                 name: collection_name
             },
             function(reply, rate, err) {
-                //var timeline_id = reply.response.results[i].timeline_id;
                 var each_collection = reply.response;
                 var index = $("#favorites").children("li").length-1;
                 each_collection["page"] = "#pageSubmenu" + index;
@@ -187,7 +169,7 @@ function addtweets(timeline_id, subpage) {
 }
 
 function addtweet(parent, tweet_id, img_src, name, text) {
-    console.log(parent);
+    //console.log(parent);
     var a = document.createElement('a');
     var li = document.createElement('li');
     li.className = 'favorite_list';
