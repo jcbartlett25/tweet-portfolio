@@ -55,21 +55,24 @@ $(document).ready(function(){
     $(document).on("click", ".delete_icon_cont", function(){
         var tweet = $(this).closest("li");
         var tweet_id = tweet.attr('id');
-        var collection_id = tweet.parents("li")[0].attributes.id;
+        var collection_id = tweet.parents("li")[0].attributes.id.nodeValue;
         
         console.log(collection_id);
+        console.log(tweet_id);
+        //cb.setConsumerKey("VCLAOVS6uW1mWcle3APB7essM", "h57Ky46shztmhGUMiZZHdCGZecXGCitQSdqT8Tm9rJOvBwUmfN");
+        //cb.setToken("938214222042943488-c2o6HMZVO2S9FRZywviN0Zr74g7cTMC", "rmIgtkJ1304JaJlaa2v4xkgpb7KPjH4wHoI7auERWUDi8");
         cb.__call(
-            "collections_entries_remove",
+            "collections_entries_curate",
             {
                 //name: 'FeinerFans',
                 "id" : collection_id,
-                "tweet_id": tweet_id
-                // changes: [
-                //     { 
-                //         op: "remove",
-                //         tweet_id: tweet_id
-                //     }
-                // ]
+                //"tweet_id": tweet_id
+                "changes": [
+                    { 
+                        "op": "remove",
+                        "tweet_id": tweet_id
+                    }
+                ]
                 //tweet_id: tweet_id
                 // screen_name: 'Portfolio'
             },
@@ -86,19 +89,19 @@ $(document).ready(function(){
         var tweet = $('#tweet_id_span').text();
         //console.log(select.val());
         cb.__call(
-            "collections_entries_add",
+            "collections_entries_curate",
             {
                 //name: 'FeinerFans',
-                "tweet_id": "939809401006968832",
-                "id" : "custom-939808090907709440"
-                
+                //"tweet_id": "939809401006968832",
+                //"id" : "custom-939808090907709440"
+                "id": collection,
                 // "op": "add"
-                // "changes" : [
-                //     {
-                //         "op": "add",
-                //         "tweet_id": tweet
-                //     }
-                // ]
+                "changes" : [
+                    {
+                        "op": "add",
+                        "tweet_id": tweet
+                    }
+                ]
                 //"tweet_id" : tweet
                 // screen_name: 'Portfolio'
             },
