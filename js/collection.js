@@ -222,16 +222,15 @@ function addtweets(timeline_id, subpage) {
         //console.log(reply2.response.timeline.length);
         for (var i = 0; i < reply2.response.timeline.length; i ++) {
             var tweet_id = reply2.response.timeline[i].tweet.id;
-            if ("tweets" in reply2.objects) {
-                var each_tweet = reply2.objects.tweets[tweet_id];
-                var user_id = each_tweet.user.id;
-                //console.log(user_id);
-                var img_src = reply2.objects.users[user_id].profile_image_url;
-                var name = reply2.objects.users[user_id].name;
-                var text = reply2.objects.tweets[tweet_id].text;
-                addtweet(parent, tweet_id, img_src, name, text);
-                //console.log('writ');
-            }
+            var each_tweet = reply2.objects.tweets[tweet_id];
+            var user_id = each_tweet.user.id_str;
+            //console.log(user_id);
+            //console.log(user_id);
+            var img_src = reply2.objects.users[user_id].profile_image_url;
+            var name = reply2.objects.users[user_id].name;
+            var text = reply2.objects.tweets[tweet_id].text;
+            addtweet(parent, tweet_id, img_src, name, text);
+            //console.log('writ');
          }
         }    
     );
