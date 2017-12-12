@@ -77,7 +77,7 @@ function getTrends() {
         function (response) {
 
             var trending_topics = [];
-            for (var i = 0; i < response[0].trends.length; i++) {
+            for (var i = 0; i < 5; i++) {
                 var trend = response[0].trends[i];
                 trending_topics.push(trend);
             }
