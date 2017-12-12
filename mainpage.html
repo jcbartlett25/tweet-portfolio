@@ -17,6 +17,7 @@
 <!-- chen edited css-->
 <link href="css/mainpage.css" rel="stylesheet" >
 
+
 <!--- right click --->
 <link href="css/context.standalone.css" rel="stylesheet" >
 
@@ -78,7 +79,7 @@
     
     <div class="container-fluid" style="margin-left:0px;padding-left:0;">
       
-       
+       <div id="loader" style="display:none;"></div>
        
        <!-- left container Advanced search -->
        
@@ -97,7 +98,7 @@
             	<div class="input-group  search_group btn-group filter_btns">
 				  <input type="text" class="form-control search_txt" id="search_box" placeholder="Search for..." aria-label="Search for..." style="border:none;">
 			  	 <span class="input-group-btn">
-				<button class="btn btn-secondary search_group_btn " style="border:none;" onclick="searchTwitter();" type="button" >Search</button>
+				<button class="btn btn-secondary search_group_btn " style="border:none;" onclick="searchTwitter()" type="button" >Search</button>
 			  </span>
 				</div>
 		 </li>
@@ -261,7 +262,15 @@
 		
 	
 <!--Modal , show tweet from the favorite list--> 
+<<<<<<< HEAD
+	<!-- Button trigger modal -->
+<button id="helpButton" type="submit" class="btn btn-default" data-toggle="modal" data-target="#helpModal">Help</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_tweet">
+  Launch demo modal
+</button>
+=======
 
+>>>>>>> b01f2e25069fc14adc07c63e17208a67e79bfdcf
 
 <!-- Modal -->
 <div class="modal fade bd-example-modal-lg" id="modal_tweet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
@@ -500,6 +509,34 @@
 			</div>
 		 	
 		 </div>
+
+		 <div class = "queueModals">
+		  <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		      	<h4 class="modal-title" id="myModalLabel">Help</h4>
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        
+		      </div>
+		      <div class="modal-body">
+		        <p>Welcome to Movie Raider!
+		        <br><br>
+		        Planning for a movie night?<br>
+		        Browse popular movies in theaters today on the home page, or find your own movies through the search bar.
+		        Add movies to your selection and find showtimes at a theater near you. Simply enter the zipcode and the time under Theater, and find the theaters that best fit your selection. 
+		        <br><br>
+		        Filled with movie information!<br>
+		        Besides the release date, runtime, MPA rating, and synopsis, we also have reviews! Click on the collapsible "Review" to view Rotten Tomatoes and New York Times reviews. Once you've added a movie to the queue, you can still view this information by clicking on its icon. 
+		        </p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		    </div>
+		  </div>
+		</div>
 		
 		
 		
@@ -517,8 +554,14 @@
     <script src="js/vue.js" type="text/javascript"></script>
     <script src="js/codebird.js" type="text/javascript"></script>
     <script src="js/twitter.js" type="text/javascript"></script>
-    
+    <script src="js/mainpage.js" type="text/javascript"></script>
     <script src="js/ICanHaz.min.js" ></script>
+
+    <link rel="stylesheet" type="text/css" href="ightbox/themes/classic/jquery.lightbox.css" />
+    
+    <script type="text/javascript" src="lightbox/jquery.lightbox.min.js"></script>
+    <script src="js/ti2181.js"></script>
+
     <script src="js/collection.js" type="text/javascript"></script>
     <script id = "favorites" type="text/html">
       <li id = {{collection_id}} >
@@ -533,5 +576,5 @@
       </li>
     </script>
    
-<script src="js/mainpage.js" type="text/javascript"></script>
+
 </html>

@@ -225,7 +225,7 @@ function addtweets(timeline_id, subpage) {
             if ("tweets" in reply2.objects) {
                 var each_tweet = reply2.objects.tweets[tweet_id];
                 var user_id = each_tweet.user.id;
-                console.log(user_id);
+                //console.log(user_id);
                 var img_src = reply2.objects.users[user_id].profile_image_url;
                 var name = reply2.objects.users[user_id].name;
                 var text = reply2.objects.tweets[tweet_id].text;

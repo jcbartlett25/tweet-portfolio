@@ -28,7 +28,8 @@ body{
 .search_group .search_group_btn{
 	cursor: pointer;
 	background-color: #288745;
-	padding:0 35px;
+	padding:0 10px;
+	font-size:
 	
 }
 .search_group .search_txt{
