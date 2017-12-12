@@ -24,8 +24,44 @@
             <a class="btn btn-xl" href="#search">Search</a>
         </div>
     </div>
-
-    <div id="trending" >
+	
+	<div id="trending" >
+		<div id="halftrending">
+			<div class="row text-center">
+				<div class="col">
+					<h5>Trending Searches</h5>
+				</div>
+				<div class="col" v-for="trend in trends">
+				    <a class="btn btn-xlwhite" v-bind:href="trend.url">{{trend.name}}</a>
+				</div>
+				<div class="col" v-for="trend in trends2">
+					<a class="btn btn-xlwhite" v-bind:href="trend.url">{{trend.name}}</a>
+				</div>
+				<div class="col" v-for="trend in trends3">
+					<a class="btn btn-xlwhite" v-bind:href="trend.url">{{trend.name}}</a>
+				</div>
+			</div>
+		</div>
+		<div id="halftrending">
+			<div class="row text-center">
+				<div class="col" v-for="trend in trends4">
+					<a class="btn btn-xlwhite" v-bind:href="trend.url">{{trend.name}}</a>
+				</div>
+				<div class="col" v-for="trend in trends5">
+					<a class="btn btn-xlwhite" v-bind:href="trend.url">{{trend.name}}</a>
+				</div>
+				<div class="col" v-for="trend in trends6">
+					<a class="btn btn-xlwhite" v-bind:href="trend.url">{{trend.name}}</a>
+				</div>
+				<div class="col" v-for="trend in trends7">
+					<a class="btn btn-xlwhite" v-bind:href="trend.url">{{trend.name}}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--
+	 <div id="trending" >
         <div class="container">
 			<h3>Suggested Trending Searches</h3>
         </div>
@@ -33,11 +69,12 @@
 			<div class="col" v-for="trend in trends">
 				<div class="ninety">
 				  <a class="btn btn-xlwhite" v-bind:href="trend.url">{{trend.name}}</a>
-				</div>
+				  </div>
 			</div>
 		</div>
-    </div>
+	</div>-->
 	
+		
 	<div id="search">
     <form id="search_form">
         <input type="search" id="search_value" value="" placeholder="Type query then press enter..." />

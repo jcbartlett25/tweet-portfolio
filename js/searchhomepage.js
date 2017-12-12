@@ -24,7 +24,13 @@ var oauth_token_secret = localStorage.getItem("oauth_token_secret");
 var trending_vue = new Vue({
         el: '#trending', 
         data: {
-          trends: []
+          trends: [],
+		  trends2: [],
+		  trends3: [],
+		  trends4: [],
+		  trends5: [],
+		  trends6: [],
+		  trends7: []
         }
     });
 
@@ -69,15 +75,18 @@ function readyUp() {
     
 }
 
+var counter = 0;
+
+
 function getTrends() {
     params = {id: 1}
     cb.__call(
         "trends_place",
         params,
         function (response) {
-
+									
             var trending_topics = [];
-            for (var i = 0; i < 8; i++) {
+            for (var i = 0; i < 1; i++) {
                 var trend = response[0].trends[i];
                 if (trend.name.charAt(0) === "#") {
                     trend.url = trend.name.substr(1);
@@ -87,9 +96,109 @@ function getTrends() {
                 }
                 var trend_url = './mainpage.html?q=' + trend.url;
                 
-                trending_topics.push({name: trend.name, url: encodeURI(trend_url)});
+				trending_topics.push({name: trend.name, url: encodeURI(trend_url)});
             }
-            trending_vue.trends = trending_topics;
+			
+			trending_vue.trends = trending_topics;
+			
+			var trending_topics2 = [];
+            for (var i = 1; i < 2; i++) {
+                var trend = response[0].trends[i];
+                if (trend.name.charAt(0) === "#") {
+                    trend.url = trend.name.substr(1);
+                }
+                else {
+                    trend.url = trend.name;
+                }
+                var trend_url = './mainpage.html?q=' + trend.url;
+                
+				trending_topics2.push({name: trend.name, url: encodeURI(trend_url)});
+            }
+			
+			trending_vue.trends2 = trending_topics2;
+			
+			var trending_topics3 = [];
+            for (var i = 2; i < 3; i++) {
+                var trend = response[0].trends[i];
+                if (trend.name.charAt(0) === "#") {
+                    trend.url = trend.name.substr(1);
+                }
+                else {
+                    trend.url = trend.name;
+                }
+                var trend_url = './mainpage.html?q=' + trend.url;
+                
+				trending_topics2.push({name: trend.name, url: encodeURI(trend_url)});
+            }
+			
+			trending_vue.trends3 = trending_topics3;
+			
+			var trending_topics4 = [];
+            for (var i = 3; i < 4; i++) {
+                var trend = response[0].trends[i];
+                if (trend.name.charAt(0) === "#") {
+                    trend.url = trend.name.substr(1);
+                }
+                else {
+                    trend.url = trend.name;
+                }
+                var trend_url = './mainpage.html?q=' + trend.url;
+                
+				trending_topics4.push({name: trend.name, url: encodeURI(trend_url)});
+            }
+			
+			trending_vue.trends4 = trending_topics4;
+			
+			var trending_topics5 = [];
+            for (var i = 4; i < 5; i++) {
+                var trend = response[0].trends[i];
+                if (trend.name.charAt(0) === "#") {
+                    trend.url = trend.name.substr(1);
+                }
+                else {
+                    trend.url = trend.name;
+                }
+                var trend_url = './mainpage.html?q=' + trend.url;
+                
+				trending_topics5.push({name: trend.name, url: encodeURI(trend_url)});
+            }
+			
+			trending_vue.trends5 = trending_topics5;
+			
+			var trending_topics6 = [];
+            for (var i = 5; i < 6; i++) {
+                var trend = response[0].trends[i];
+                if (trend.name.charAt(0) === "#") {
+                    trend.url = trend.name.substr(1);
+                }
+                else {
+                    trend.url = trend.name;
+                }
+                var trend_url = './mainpage.html?q=' + trend.url;
+                
+				trending_topics6.push({name: trend.name, url: encodeURI(trend_url)});
+            }
+			
+			trending_vue.trends6 = trending_topics6;
+			
+			var trending_topics7 = [];
+            for (var i = 7; i < 8; i++) {
+                var trend = response[0].trends[i];
+                if (trend.name.charAt(0) === "#") {
+                    trend.url = trend.name.substr(1);
+                }
+                else {
+                    trend.url = trend.name;
+                }
+                var trend_url = './mainpage.html?q=' + trend.url;
+                
+				trending_topics7.push({name: trend.name, url: encodeURI(trend_url)});
+            }
+			
+			trending_vue.trends7 = trending_topics7;
+			
+			
+						
         }, true);
 }
 
