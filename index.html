@@ -30,19 +30,10 @@
 			<h3>Suggested Trending Searches</h3>
         </div>
 		
-		<div class="row text-center">
+		<div class="row text-center" id="trending">
 			<div class="col-xs-6">
-				<div class="ninety">
-				  <a class="btn btn-xlwhite" href="mainpage.html">#topic1</a>
-				  <a class="btn btn-xlwhite" href="mainpage.html">#trendinglotlonger</a>
-				  <a class="btn btn-xlwhite" href="mainpage.html">#mediumsearch</a>
-				  <a class="btn btn-xlwhite" href="mainpage.html">#topic2</a>
-				  <a class="btn btn-xlwhite" href="mainpage.html">#topic3</a>
-				  <a class="btn btn-xlwhite" href="mainpage.html">#trendinglotlonger</a>
-				  <a class="btn btn-xlwhite" href="mainpage.html">#mediumsearch</a>
-				  <a class="btn btn-xlwhite" href="mainpage.html">#topic2</a>
-				  <a class="btn btn-xlwhite" href="mainpage.html">#trendinglotlonger</a>
-				  <a class="btn btn-xlwhite" href="mainpage.html">#topic3</a>
+				<div class="ninety" v-for="trend in trends">
+				  <a class="btn btn-xlwhite" href="mainpage.html">{{trend.name}}</a>
 				</div>
 			</div>
 		</div>
@@ -56,14 +47,10 @@
 	
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/paper-full.min.js"></script>
+    <script src="js/codebird.js"></script>
+    <script src="js/vue.js"></script>
 	<script src="js/searchhomepage.js"></script>
     <script src="js/circles.js"></script>
-	<script src="js/twitter.js"></script>
-	<script type="text/javascript">
-    document.getElementById("myButton").onclick = function () {
-        location.href = "/mainpage.html";
-    };
-	</script>
 
 </body>
 
