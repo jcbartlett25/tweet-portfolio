@@ -63,7 +63,7 @@ function readyUp() {
 
 function searchTwitter() {
     localStorage.setItem("last_search", $('#search_box').val());
-    params = {q: $('#search_box').val(), count: 100}
+    params = {q: $('#search_box').val(), count: 100, lang: 'en', result_type: 'mixed'}
     cb.__call(
         "search_tweets",
         params,
@@ -83,7 +83,7 @@ function searchTwitter() {
 
 function searchOnlyText() {
     localStorage.setItem("last_search", $('#search_box').val());
-    params = {q: $('#search_box').val(), count: 100, include_entities: false};
+    params = {q: $('#search_box').val(), count: 100, include_entities: false, lang: 'en'};
     cb.__call(
         "search_tweets",
         params,
@@ -118,6 +118,46 @@ function searchOnlyPictures() {
                 if (image){
                     temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: status.id_str, media: image});
                 }
+            }
+            feed_vue.tweets = temp_tweets;
+            console.log(temp_tweets);
+        }, true);
+}
+
+function searchRecent() {
+    localStorage.setItem("last_search", $('#search_box').val());
+    params = {q: $('#search_box').val(), count: 100, result_type: 'recent'};
+    cb.__call(
+        "search_tweets",
+        params,
+        function (response) {var statuses = response.statuses;
+
+            var temp_tweets = [];
+
+            for (var i = 0; i < statuses.length; i++){
+                var status = statuses[i];
+                var image = (status.entities.media) ? status.entities.media[0].media_url : null;
+                temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: status.id_str, media: image});
+            }
+            feed_vue.tweets = temp_tweets;
+            console.log(temp_tweets);
+        }, true);
+}
+
+function searchPopular() {
+    localStorage.setItem("last_search", $('#search_box').val());
+    params = {q: $('#search_box').val(), count: 100, result_type: 'popular'};
+    cb.__call(
+        "search_tweets",
+        params,
+        function (response) {var statuses = response.statuses;
+
+            var temp_tweets = [];
+
+            for (var i = 0; i < statuses.length; i++){
+                var status = statuses[i];
+                var image = (status.entities.media) ? status.entities.media[0].media_url : null;
+                temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: status.id_str, media: image});
             }
             feed_vue.tweets = temp_tweets;
             console.log(temp_tweets);
