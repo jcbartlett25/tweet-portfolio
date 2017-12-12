@@ -3,10 +3,6 @@ cb.setConsumerKey("VCLAOVS6uW1mWcle3APB7essM", "h57Ky46shztmhGUMiZZHdCGZecXGCitQ
 cb.setToken("938214222042943488-c2o6HMZVO2S9FRZywviN0Zr74g7cTMC", "rmIgtkJ1304JaJlaa2v4xkgpb7KPjH4wHoI7auERWUDi8");
 
 $(document).ready(function(){
-	/* datepicker */
-	// var cb = new Codebird;
- //    cb.setConsumerKey("VCLAOVS6uW1mWcle3APB7essM", "h57Ky46shztmhGUMiZZHdCGZecXGCitQSdqT8Tm9rJOvBwUmfN");
- //    cb.setToken("938214222042943488-c2o6HMZVO2S9FRZywviN0Zr74g7cTMC", "rmIgtkJ1304JaJlaa2v4xkgpb7KPjH4wHoI7auERWUDi8");
     cb.__call(
         "collections_list",
         {
@@ -72,72 +68,11 @@ $(document).ready(function(){
     });
 
     $(document).on("click", "#add_to_list", function(){
-
-        var select = $("#folder_name option:selected");
-        var collection = select.val();
-        var tweet = $('#tweet_id_span').text();
-        //console.log(collection);
-        //console.log(tweet);
-        cb.__call(
-            "collections_entries_curate",
-            {
-                "id": collection,
-                //"op": "add"
-                "changes" : [
-                    {
-                        "op": "add",
-                        "tweet_id": tweet
-                    }
-                ]
-                //"tweet_id" : tweet
-            },
-            function(reply, rate, err) {
-                if (reply.response.errors[0]) {
-                    //console.log(reply.response.errors[0]);
-                    alert(reply.response.errors[0].reason);
-
-                } else {
-                    cb.__call(
-                        "statuses_show_ID",
-                        {
-                            id : tweet
-                        },
-                        function(reply2, rate, err) {
-                            var parent = $("#"+collection).children('ul')[0];
-                            var img_src = reply2.user.profile_image_url;
-                            var name = reply2.user.name;
-                            var text = reply2.text;
-                            addtweet(parent, tweet, img_src, name, text);
-                            alert('success');
-                        }
-                    );
-                }
-                
-            }
-        );
+        addToList();
     });
 
     $(document).on("click", "#create_list", function(){
-        var collection_name = $("#new_collection_name").val();
-        cb.__call(
-            "collections_create",
-            {
-                name: collection_name
-            },
-            function(reply, rate, err) {
-                var each_collection = reply.response;
-                var index = $("#favorites").children("li").length;
-                //console.log(index); 
-                each_collection["page"] = "#pageSubmenu" + index;
-                each_collection["subpage"] = "pageSubmenu" + index;
-                each_collection["collection_id"] = reply.response.timeline_id;
-                each_collection["name"] = collection_name;
-                var collections = ich.favorites(each_collection);
-                $("#favorites").append(collections);
-                $("#folder_name").append("<option value ="+ reply.response.timeline_id +">"+each_collection.name+"</option>"); 
-                //alert('success');
-            }
-        );
+        createList();
     });
 
     $('#Modal').on('show.bs.modal', function(event) {
@@ -147,7 +82,97 @@ $(document).ready(function(){
         $('#tweet_id_span').text(text);
     }) 
 
+    $(document).on('keyup',function(e){
+        if(e.keyCode === 13){
+            //console.log($('#createList')[0].style.display);
+            if($('#Modal')[0].style.display=="block") {
+                addToList();
+                $("#Modal").modal('hide');
+            }
+        }
+    });
+
+    $("#new_collection_name").keydown(function(e) {
+        if (e.which == "13") {
+            //alert('12');
+            e.preventDefault();
+            createList();
+        }
+    });
+
 });
+
+function addToList() {
+    var select = $("#folder_name option:selected");
+    var collection = select.val();
+    var tweet = $('#tweet_id_span').text();
+    alert(tweet);
+    //console.log(collection);
+    //console.log(tweet);
+    cb.__call(
+        "collections_entries_curate",
+        {
+            "id": collection,
+            //"op": "add"
+            "changes" : [
+                {
+                    "op": "add",
+                    "tweet_id": tweet
+                }
+            ]
+        },
+        function(reply, rate, err) {
+            if (reply.response.errors[0]) {
+                //console.log(reply.response.errors[0]);
+                alert(reply.response.errors[0].reason);
+
+            } else {
+                cb.__call(
+                    "statuses_show_ID",
+                    {
+                        id : tweet
+                    },
+                    function(reply2, rate, err) {
+                        var parent = $("#"+collection).children('ul')[0];
+                        var img_src = reply2.user.profile_image_url;
+                        var name = reply2.user.name;
+                        var text = reply2.text;
+                        addtweet(parent, tweet, img_src, name, text);
+                        alert('success');
+                    }
+                );
+            }
+            
+        }
+    );
+
+}
+
+function createList() {
+    var collection_name = $("#new_collection_name").val();
+    //alert(collection_name);
+    cb.__call(
+        "collections_create",
+        {
+            name: collection_name
+        },
+        function(reply, rate, err) {
+            var each_collection = reply.response;
+            var index = $("#favorites").children("li").length;
+            //console.log(index); 
+            each_collection["page"] = "#pageSubmenu" + index;
+            each_collection["subpage"] = "pageSubmenu" + index;
+            each_collection["collection_id"] = reply.response.timeline_id;
+            each_collection["name"] = collection_name;
+            var collections = ich.favorites(each_collection);
+            $("#favorites").append(collections);
+            $("#folder_name").append("<option value ="+ reply.response.timeline_id +">"+each_collection.name+"</option>"); 
+            //alert('success');
+        }
+    );
+    $("#createList").modal('hide');
+    //alert('success');
+}
 
 function addtweets(timeline_id, subpage) {
     cb.__call(
@@ -172,13 +197,12 @@ function addtweets(timeline_id, subpage) {
                 addtweet(parent, tweet_id, img_src, name, text);
                 //console.log('writ');
             }
-            
-            
-
          }
         }    
     );
+
 }
+
 
 function addtweet(parent, tweet_id, img_src, name, text) {
     //console.log(parent);
