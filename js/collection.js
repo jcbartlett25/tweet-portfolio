@@ -3,6 +3,7 @@ cb.setConsumerKey("VCLAOVS6uW1mWcle3APB7essM", "h57Ky46shztmhGUMiZZHdCGZecXGCitQ
 cb.setToken("938214222042943488-c2o6HMZVO2S9FRZywviN0Zr74g7cTMC", "rmIgtkJ1304JaJlaa2v4xkgpb7KPjH4wHoI7auERWUDi8");
 
 $(document).ready(function(){
+    //show the collections
     cb.__call(
         "collections_list",
         {
@@ -27,6 +28,7 @@ $(document).ready(function(){
         }
     );
 
+    //delete the collection
     $(document).on("click", ".delete_icon_col", function(){
         
         var collection_id = $(this).closest('li').attr('id');
@@ -43,6 +45,7 @@ $(document).ready(function(){
         );
     });
 
+    //delete one tweet in collection
     $(document).on("click", ".delete_icon_cont", function(){
         var tweet = $(this).closest("li");
         var tweet_id = tweet.attr('id');
@@ -67,10 +70,12 @@ $(document).ready(function(){
         );
     });
 
+    //add the tweet to a specific collection
     $(document).on("click", "#add_to_list", function(){
         addToList();
     });
 
+    //create a new collection
     $(document).on("click", "#create_list", function(){
         createList();
     });
@@ -82,6 +87,7 @@ $(document).ready(function(){
         $('#tweet_id_span').text(text);
     }) 
 
+    //return shortcuts for adding a tweet to a collection
     $(document).on('keyup',function(e){
         if(e.keyCode === 13){
             //console.log($('#createList')[0].style.display);
@@ -92,6 +98,7 @@ $(document).ready(function(){
         }
     });
 
+    //return shortcuts for creating a new collection
     $("#new_collection_name").keydown(function(e) {
         if (e.which == "13") {
             //alert('12');
