@@ -63,7 +63,9 @@
 		</div>
         
         <div class="col-sm-3 favorite_btn">
-          <button class="btn btn-outline-success my-2 my-sm-2 search_btn" type="" href="#">Favorite Tweets</button>
+          <button class="btn btn-outline-success my-2 my-sm-2 search_btn" type="button" id="sidebarCollapse" >
+                                <i class="glyphicon glyphicon-align-left"></i>
+                                <span>Toggle Sidebar</span></button>
 		</div>
 		
        </div>
@@ -73,11 +75,70 @@
     
     
     
-    <div class="container-fluid" >
+    <div class="container-fluid" style="margin-left:0px;padding-left:0;">
       
        
        
        <!-- left container Advanced search -->
+       
+        <div class="wrapper" style="width:300px;float:left;">
+            <!-- Sidebar Holder -->
+            <nav id="sidebar" style="width:250px;background:none !important;">
+              
+               <ul class="nav nav-pills flex-column" id="left_sidebar">
+				<li class="nav-item">
+				  <span class="nav-link" >Search In </span>
+				</li>
+            <li class="nav-item">
+				<div class="btn-group filter_btns" role="group" aria-label="Basic example">
+				  <button type="button" class="btn btn-outline-success btn_active btn_filter " style="width:50%">All Tweets</button>
+				  <button type="button" class="btn btn-outline-secondary btn_filter" style="width:50%">Favorite</button>	
+				</div>  	
+            </li>
+            <li class="nav-item">
+               <span class="nav-link" >Tweet Type </span>
+               <div class="btn-group filter_btns" role="group" aria-label="Basic example">
+              	 <button type="button" class="btn btn-outline-success btn_active btn_filter" style="width:50%">All</button>
+				  <button type="button" class="btn btn-outline-secondary  btn_filter" style="width:50%">Text</button>
+				  <button type="button" class="btn btn-outline-secondary btn_filter" style="width:50%">Image</button>	
+				   <button type="button" class="btn btn-outline-secondary btn_filter" style="width:50%">Video</button>	
+				</div>
+            </li>
+           <li class="nav-item">
+               <span class="nav-link" >Time </span>
+               
+                <div class="btn-group filter_btns" role="group" aria-label="Basic example">
+              	  <button type="button" class="btn btn-outline-success btn_active btn_filter" style="width:50%">All</button>
+				  <button type="button" class="btn btn-outline-secondary  btn_filter" style="width:50%"> 1 day</button>
+				  <button type="button" class="btn btn-outline-secondary btn_filter" style="width:50%"> 1 week</button>	
+				   <button type="button" class="btn btn-outline-secondary btn_filter" style="width:50%">1 month</button>	
+				  
+				</div>
+               
+                <div class=" filter_btns btn_filter" style="margin-top:20px; display: block;">
+				   <span class="" style="font-size:1.5em;margin-top:15px;">From</span>
+					<input id="datepicker"  type="text"  aria-label="Text input with checkbox">
+				  
+				    <span class="" style="font-size:1.5em;margin-top:15px;">to</span>
+				  	<input  id="datepicker2" type="text"  aria-label="Text input with checkbox">
+				</div>
+            </li>
+            
+           
+              <li class="nav-item" style="margin-top:115px;">
+               
+                <button type="button" class="btn btn-success btn_filter filter_btns" style="padding:3px 0;">Filter The Results</button>	
+            </li>
+          </ul>
+
+            </nav>
+           
+            
+		</div>
+       
+       
+       
+       <!---
         <div class="col-2.5 d-sm-block bg-light sidebar" style=" min-width: 270px;
     max-width: 290px; margin-left:20px">
           <ul class="nav nav-pills flex-column">
@@ -124,6 +185,7 @@
                 <button type="button" class="btn btn-success btn_filter filter_btns" style="padding:3px 0;">Filter The Results</button>	
             </li>
             -->
+             <!--
               <li class="nav-item" style="margin-top:115px;">
                
                 <button type="button" class="btn btn-success btn_filter filter_btns" style="padding:3px 0;">Filter The Results</button>	
@@ -131,6 +193,7 @@
           </ul>
 		 </div>
 		
+		-->
 		
 		<!--Modal , show where to put the tweets--> 
 	<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="font-size:0.9em;">
@@ -398,5 +461,6 @@
       </ul>
       </li>
     </script>
+   
 
 </html>

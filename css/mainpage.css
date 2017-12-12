@@ -215,7 +215,7 @@ small, .da {
 }
 
 #sidebar.active {
-    margin-left: -250px;
+    margin-left: -300px;
 }
 
 #sidebar .sidebar-header {
@@ -254,6 +254,37 @@ small, .da {
 }
 
 
+#sidebar_left {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar_left .active_left {
+    margin-left: -250px;
+}
+
+#sidebar_left .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+}
+
+#sidebar_left ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+
+.left_cont{
+	margin:0;
+	width:250px;
+}
 a[data-toggle="collapse"] {
     position: relative;
 }
@@ -428,6 +459,10 @@ a.article, a.article:hover {
 	font-size:0.8em;
 	width:130px;
 	cursor:pointer;
+}
+
+#left_sidebar li{
+	background:none !important;
 }
 /* ---------------------------------------------------
     CONTENT STYLE
