@@ -27,7 +27,6 @@ h2 {
 
 h3 {
 	font-size: 3em;
-	margin-top: 20px;
 	margin-bottom: 20px;
 	text-align: center;
 }
@@ -40,9 +39,7 @@ h3 {
     background-color: #212529;
     color: white;
 	float: none;
-	display: inline-block;
 	line-height: 80px;
-	background-clip: content-box;
 }
 
 #search {
@@ -131,7 +128,7 @@ h3 {
 	line-height: 1.5; 
 	border-radius: 6px;
 	color: black;
-	margin: 10px;
+	margin: 5px;
 	background-color: white;
 	
 }
@@ -142,6 +139,6 @@ h3 {
 }
 
 .ninety{
-  width: 95%;
-  margin: auto;
+  width: 90%;
+  margin: 5px;
 }
