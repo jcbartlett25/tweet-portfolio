@@ -26,12 +26,7 @@ $(document).ready(function(){
 					 
                  });
 	 			
-	 // favorite items to show detailed tweet
-	 			$('.favorite_list').on('click',function(){
-					alert('dd');
-					$('#modal_tweet').modal('show');
-					
-				});
+	
 	 
 	 $('#filter_twitter .btn_filter').on('click',function(){
 		  $('#filter_twitter .btn_filter').toggleClass('btn_active');
