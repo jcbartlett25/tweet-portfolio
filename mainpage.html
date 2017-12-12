@@ -83,7 +83,7 @@
        
        <!-- left container Advanced search -->
        
-        <div class="wrapper" style="width:300px;float:left;">
+        <div class="wrapper" style="width:300px;float:left;position: fixed;">
             <!-- Sidebar Holder -->
             <nav id="sidebar" style="width:250px;background:none !important;">
               
@@ -111,11 +111,7 @@
 				</div>  	
             </li>
             
-            
-            
-            
-            
-            
+       
             <li class="nav-item">
                <span class="nav-link" >Tweet Type </span>
                <div class="btn-group filter_btns" role="group" aria-label="Basic example" id="filter_type">
@@ -145,10 +141,7 @@
             </li>
             
            
-              <li class="nav-item" style="margin-top:115px;">
-               
-                <button type="button" onclick="filteredSearch();" class="btn btn-success btn_filter filter_btns" style="padding:3px 0;">Filter The Results</button>	
-            </li>
+            
           </ul>
 
             </nav>
@@ -296,7 +289,12 @@
 		 	
 		 	</div>
 	
-        
+        <div class="modal-footer">
+				
+				<button type="button" class="btn btn-primary btn-success" id = "goto_tweet" data-dismiss="modal">
+					Go to Tweet Page</button>
+       <!-- <span style="display: none" id="tweet_id_span"></span>  -->
+			  </div>
         
         <!-- end -- here is the favorite tweet info -->
       </div>
