@@ -31,14 +31,14 @@
 				<div class="col">
 					<h5>Trending Searches</h5>
 				</div>
-				<div class="col" v-for="trend in trends">
+				<div class="col" style="background:red;" v-for="trend in trends">
 				    <a class="btn btn-xlwhite" v-bind:href="trend.url">{{trend.name}}</a>
 				</div>
-				<div class="col" v-for="trend in trends2">
+				<div class="col" style="background:blue;" v-for="trend in trends2">
 					<a class="btn btn-xlwhite" v-bind:href="trend.url">{{trend.name}}</a>
 				</div>
-				<div class="col" v-for="trend in trends3">
-					<a class="btn btn-xlwhite" v-bind:href="trend.url">{{trend.name}}</a>
+				<div class="col" style="background:red;" v-for="trend in trends3">
+				    <a class="btn btn-xlwhite" v-bind:href="trend.url">{{trend.name}}</a>
 				</div>
 			</div>
 		</div>

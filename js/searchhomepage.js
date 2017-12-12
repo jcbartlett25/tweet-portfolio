@@ -128,7 +128,7 @@ function getTrends() {
                 }
                 var trend_url = './mainpage.html?q=' + trend.url;
                 
-				trending_topics2.push({name: trend.name, url: encodeURI(trend_url)});
+				trending_topics3.push({name: trend.name, url: encodeURI(trend_url)});
             }
 			
 			trending_vue.trends3 = trending_topics3;
