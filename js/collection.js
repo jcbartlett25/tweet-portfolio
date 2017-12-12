@@ -2,6 +2,13 @@ var cb = new Codebird;
 cb.setConsumerKey("VCLAOVS6uW1mWcle3APB7essM", "h57Ky46shztmhGUMiZZHdCGZecXGCitQSdqT8Tm9rJOvBwUmfN");
 cb.setToken("938214222042943488-c2o6HMZVO2S9FRZywviN0Zr74g7cTMC", "rmIgtkJ1304JaJlaa2v4xkgpb7KPjH4wHoI7auERWUDi8");
 
+var tweet_vue = new Vue({
+        el: '#modal_tweet', 
+        data: {
+          tweets: []
+        }
+    });
+
 $(document).ready(function(){
     //show the collections
     cb.__call(
@@ -107,7 +114,26 @@ $(document).ready(function(){
         }
     });
 
-    //#("")
+    $(document).on('click', '.favorite_list', function(e){
+        $('#modal_tweet').modal('show');
+        var tweet_id = $(this).closest("li").attr('id');
+        //var tweet_id = tweet.attr('id');
+        cb.__call(
+            "statuses_show_ID",
+            {
+                id : tweet_id
+            },
+            function(reply, rate, err) {
+                var temp_tweet = [];
+                // var each_tweet = reply;
+                // each_tweet["name"] = reply.user.name;
+                // each_tweet["img_src"] = reply.user.profile_image_url;
+                var image = (reply.entities.media) ? reply.entities.media[0].media_url : null;
+                temp_tweet.push({name: reply.user.name, text: reply.text, img:reply.user.profile_image_url, media: image});
+                tweet_vue.tweets = temp_tweet;
+            }
+        );
+    });
 
 });
 

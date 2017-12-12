@@ -262,16 +262,16 @@
         <!--- here is the favorite tweet info -->
         
         
-		 	<div class="main_cont" >
+		 	<div class="main_cont" v-for="tweet in tweets">
 		 		<ul style="">
 		 			<li class="oq b acx bku">
 		 				<img class="bkp ru uk abc" v-bind:src='tweet.img'>
 		 			<div class="or" >
 		 					<div class="bky">
 							 
-								  <h6>ddddd</h6>
+								  <h6>{{tweet.name}}</h6>
 							</div>
-		 					<p>dddddd</p>
+		 					<p>{{tweet.text}}</p>
       				<div v-if="tweet.media != null" class="bkv twitter_images" data-grid="images">
       				<img   v-bind:src="tweet.media">      			
       				</div>
