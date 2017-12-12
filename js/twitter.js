@@ -78,6 +78,13 @@ function readyUp() {
     
 }
 
+function getActualTweetID(status) {
+    if (status.retweeted_status) {
+        return status.retweeted_status.id_str;
+    }
+    return status.id_str;
+}
+
 function searchTwitter() {
     localStorage.setItem("last_search", $('#search_box').val());
     params = {q: $('#search_box').val(), count: 100, lang: 'en', result_type: 'mixed'}
@@ -91,10 +98,12 @@ function searchTwitter() {
             for (var i = 0; i < statuses.length; i++){
                 var status = statuses[i];
                 var image = (status.entities.media) ? status.entities.media[0].media_url : null;
-                temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: status.id_str, media: image});
+                var tweetID = getActualTweetID(status);
+                console.log(status);
+                temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: tweetID, media: image});
             }
             feed_vue.tweets = temp_tweets;
-            console.log(temp_tweets);
+
         }, true);
 }
 
@@ -111,10 +120,11 @@ function searchOnlyText() {
             for (var i = 0; i < statuses.length; i++){
                 var status = statuses[i];
                 var image = null;
-                temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: status.id_str, media: image});
+                var tweetID = getActualTweetID(status);
+                temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: tweetID, media: image});
             }
             feed_vue.tweets = temp_tweets;
-            console.log(temp_tweets);
+
         }, true);
 }
 
@@ -131,13 +141,14 @@ function searchOnlyPictures() {
             for (var i = 0; i < statuses.length; i++){
                 var status = statuses[i];
                 var image = (status.entities.media) ? status.entities.media[0].media_url : null;
+                var tweetID = getActualTweetID(status);
 
                 if (image){
-                    temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: status.id_str, media: image});
+                    temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: tweetID, media: image});
                 }
             }
             feed_vue.tweets = temp_tweets;
-            console.log(temp_tweets);
+
         }, true);
 }
 
@@ -154,10 +165,11 @@ function searchRecent() {
             for (var i = 0; i < statuses.length; i++){
                 var status = statuses[i];
                 var image = (status.entities.media) ? status.entities.media[0].media_url : null;
-                temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: status.id_str, media: image});
+                var tweetID = getActualTweetID(status);
+                temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: tweetID, media: image});
             }
             feed_vue.tweets = temp_tweets;
-            console.log(temp_tweets);
+
         }, true);
 }
 
@@ -174,10 +186,11 @@ function searchPopular() {
             for (var i = 0; i < statuses.length; i++){
                 var status = statuses[i];
                 var image = (status.entities.media) ? status.entities.media[0].media_url : null;
-                temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: status.id_str, media: image});
+                var tweetID = getActualTweetID(status);
+                temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: tweetID, media: image});
             }
             feed_vue.tweets = temp_tweets;
-            console.log(temp_tweets);
+
         }, true);
 }
 
