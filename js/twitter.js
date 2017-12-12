@@ -133,6 +133,8 @@ function filteredSearch() {
 
         }, true);
     
+    window.scrollBy(0, -50000000);
+    
 }
 
 readyUp();
