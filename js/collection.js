@@ -117,6 +117,7 @@ $(document).ready(function(){
     });
 
     $(document).on('click', '.favorite_list', function(e){
+        $("#modal_tweet").modal('show');
         var tweet_id = $(this).closest("li").attr('id');
         //var tweet_id = tweet.attr('id');
         cb.__call(
