@@ -37,7 +37,7 @@ h3 {
 
 #trending {
 	height: 35vh;
-    background-color: #00bfff;
+    background-color: #28a745;
     color: white;
 	float: none;
 	display: inline-block;
@@ -115,7 +115,7 @@ h3 {
 .btn-xl { 
 	font-size: 3em; 
 	color: white;
-	background-color: #00bfff;
+	background-color: #28a745;
 	
 }
 
