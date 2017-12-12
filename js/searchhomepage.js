@@ -79,7 +79,15 @@ function getTrends() {
             var trending_topics = [];
             for (var i = 0; i < 5; i++) {
                 var trend = response[0].trends[i];
-                trending_topics.push(trend);
+                if (trend.name.charAt(0) === "#") {
+                    trend.url = trend.name.substr(1);
+                }
+                else {
+                    trend.url = trend.name;
+                }
+                var trend_url = './mainpage.html?q=' + trend.url;
+                
+                trending_topics.push({name: trend.name, url: encodeURI(trend_url)});
             }
             trending_vue.trends = trending_topics;
         }, true);
