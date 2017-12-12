@@ -53,7 +53,7 @@ function readyUp() {
 }
 
 function searchTwitter() {
-    params = {q: $('#search_box').val(), count: 30}
+    params = {q: $('#search_box').val(), count: 100}
     cb.__call(
         "search_tweets",
         params,
