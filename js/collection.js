@@ -130,7 +130,8 @@ $(document).ready(function(){
                 // each_tweet["name"] = reply.user.name;
                 // each_tweet["img_src"] = reply.user.profile_image_url;
                 var image = (reply.entities.media) ? reply.entities.media[0].media_url : null;
-                temp_tweet.push({name: reply.user.name, text: reply.text, img:reply.user.profile_image_url, media: image, time: reply.created_at});
+                var url = 'twitter.com/statuses/' + reply.id_str;
+                temp_tweet.push({name: reply.user.name, text: reply.text, img:reply.user.profile_image_url, media: image, time: moment(reply.created_at).fromNow(), url: url});
                 tweet_vue.tweets = temp_tweet;
             }
         );
