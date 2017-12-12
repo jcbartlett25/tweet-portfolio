@@ -54,6 +54,7 @@ $(document).ready(function(){
 
     //delete one tweet in collection
     $(document).on("click", ".delete_icon_cont", function(){
+        //alert('hide');       
         $('#modal_tweet').modal('hide');
         var tweet = $(this).closest("li");
         var tweet_id = tweet.attr('id');
@@ -116,7 +117,6 @@ $(document).ready(function(){
     });
 
     $(document).on('click', '.favorite_list', function(e){
-        $('#modal_tweet').modal('show');
         var tweet_id = $(this).closest("li").attr('id');
         //var tweet_id = tweet.attr('id');
         cb.__call(
@@ -289,6 +289,7 @@ var Is_edit_btn =true;
 function editFavorite()
 {
 	var div1 = $('.delete_icon_cont');
+
 	var div2 =$('.edit_cont');
 	var icon =$('#edit_favorite_twitter');
 	if(Is_edit_btn){
