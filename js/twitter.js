@@ -220,8 +220,15 @@ function filteredSearch() {
 
             for (var i = 0; i < statuses.length; i++){
                 var status = statuses[i];
-                var image = (status.entities.media) ? status.entities.media[0].media_url : null;
+                var image;
 
+                
+                if (tweet_type === 'text') {
+                    image = null
+                }
+                else {
+                    image = (status.entities.media) ? status.entities.media[0].media_url : null;
+                }
                 if (tweet_type === 'image' && !image) {
                     continue;
                 }
