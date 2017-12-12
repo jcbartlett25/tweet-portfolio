@@ -520,6 +520,13 @@ a.article, a.article:hover {
 .btn_active{
 	color:#fff !important;
 }
+
+.tweet_time{
+	font-size:0.8em;
+	color:#666;
+	
+	position:relative;
+}
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */

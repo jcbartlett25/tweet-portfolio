@@ -85,115 +85,6 @@ function getActualTweetID(status) {
     return status.id_str;
 }
 
-function searchTwitter() {
-    localStorage.setItem("last_search", $('#search_box').val());
-    params = {q: $('#search_box').val(), count: 100, lang: 'en', result_type: 'mixed'}
-    cb.__call(
-        "search_tweets",
-        params,
-        function (response) {var statuses = response.statuses;
-
-            var temp_tweets = [];
-
-            for (var i = 0; i < statuses.length; i++){
-                var status = statuses[i];
-                var image = (status.entities.media) ? status.entities.media[0].media_url : null;
-                var tweetID = getActualTweetID(status);
-                console.log(status);
-                temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: tweetID, media: image});
-            }
-            feed_vue.tweets = temp_tweets;
-
-        }, true);
-}
-
-function searchOnlyText() {
-    localStorage.setItem("last_search", $('#search_box').val());
-    params = {q: $('#search_box').val(), count: 100, include_entities: false, lang: 'en'};
-    cb.__call(
-        "search_tweets",
-        params,
-        function (response) {var statuses = response.statuses;
-
-            var temp_tweets = [];
-
-            for (var i = 0; i < statuses.length; i++){
-                var status = statuses[i];
-                var image = null;
-                var tweetID = getActualTweetID(status);
-                temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: tweetID, media: image});
-            }
-            feed_vue.tweets = temp_tweets;
-
-        }, true);
-}
-
-function searchOnlyPictures() {
-    localStorage.setItem("last_search", $('#search_box').val());
-    params = {q: $('#search_box').val(), count: 100, include_entities: true};
-    cb.__call(
-        "search_tweets",
-        params,
-        function (response) {var statuses = response.statuses;
-
-            var temp_tweets = [];
-
-            for (var i = 0; i < statuses.length; i++){
-                var status = statuses[i];
-                var image = (status.entities.media) ? status.entities.media[0].media_url : null;
-                var tweetID = getActualTweetID(status);
-
-                if (image){
-                    temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: tweetID, media: image});
-                }
-            }
-            feed_vue.tweets = temp_tweets;
-
-        }, true);
-}
-
-function searchRecent() {
-    localStorage.setItem("last_search", $('#search_box').val());
-    params = {q: $('#search_box').val(), count: 100, result_type: 'recent'};
-    cb.__call(
-        "search_tweets",
-        params,
-        function (response) {var statuses = response.statuses;
-
-            var temp_tweets = [];
-
-            for (var i = 0; i < statuses.length; i++){
-                var status = statuses[i];
-                var image = (status.entities.media) ? status.entities.media[0].media_url : null;
-                var tweetID = getActualTweetID(status);
-                temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: tweetID, media: image});
-            }
-            feed_vue.tweets = temp_tweets;
-
-        }, true);
-}
-
-function searchPopular() {
-    localStorage.setItem("last_search", $('#search_box').val());
-    params = {q: $('#search_box').val(), count: 100, result_type: 'popular'};
-    cb.__call(
-        "search_tweets",
-        params,
-        function (response) {var statuses = response.statuses;
-
-            var temp_tweets = [];
-
-            for (var i = 0; i < statuses.length; i++){
-                var status = statuses[i];
-                var image = (status.entities.media) ? status.entities.media[0].media_url : null;
-                var tweetID = getActualTweetID(status);
-                temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: tweetID, media: image});
-            }
-            feed_vue.tweets = temp_tweets;
-
-        }, true);
-}
-
 function filteredSearch() {
 
     var result_type = '';
@@ -221,8 +112,9 @@ function filteredSearch() {
             for (var i = 0; i < statuses.length; i++){
                 var status = statuses[i];
                 var image;
+                var url = 'https://twitter.com/statuses/' + status.id_str;
 
-                
+                //console.log(status);
                 if (tweet_type === 'text') {
                     image = null
                 }
@@ -233,13 +125,15 @@ function filteredSearch() {
                     continue;
                 }
                 var tweetID = getActualTweetID(status);
-                temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: tweetID, media: image});
+                temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: tweetID, media: image, time: moment(status.created_at).fromNow(), url: url, alt_time: status.created_at});
             }
             feed_vue.tweets = temp_tweets;
+            console.log(temp_tweets);
+
 
         }, true);
     
 }
 
 readyUp();
-searchTwitter();
+filteredSearch();
