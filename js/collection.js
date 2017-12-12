@@ -107,13 +107,15 @@ $(document).ready(function(){
         }
     });
 
+    //#("")
+
 });
 
 function addToList() {
     var select = $("#folder_name option:selected");
     var collection = select.val();
     var tweet = $('#tweet_id_span').text();
-    alert(tweet);
+    //alert(tweet);
     //console.log(collection);
     //console.log(tweet);
     cb.__call(
@@ -145,7 +147,7 @@ function addToList() {
                         var name = reply2.user.name;
                         var text = reply2.text;
                         addtweet(parent, tweet, img_src, name, text);
-                        alert('success');
+                        //alert('success');
                     }
                 );
             }
