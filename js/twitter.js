@@ -5,6 +5,20 @@ var oauth_token = localStorage.getItem("oauth_token");
 var oauth_token_secret = localStorage.getItem("oauth_token_secret");
 var last_search = localStorage.getItem("last_search");
 
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+var url_query = getParameterByName('q');
+console.log(url_query);
+
 var feed_vue = new Vue({
         el: '#feed', 
         data: {
@@ -16,14 +30,17 @@ var feed_vue = new Vue({
 
 
 function readyUp() {
-    if (!last_search) {
+
+    if (url_query) {
+        $('#search_box').val(url_query);
+    }
+    else if (!last_search) {
         $('#search_box').val('animals');
-        console.log('hey');
     }
     else {
         $('#search_box').val(last_search);
-        console.log('hiefj');
     }
+
     if (oauth_token && oauth_token_secret) {
           cb.setToken(oauth_token, oauth_token_secret);
           console.log('cached');

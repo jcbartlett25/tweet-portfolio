@@ -30,9 +30,9 @@
 			<h3>Suggested Trending Searches</h3>
         </div>
 		<div class="row text-center">
-			<div class="col-xs-6" v-for="trend in trends">
+			<div class="col" v-for="trend in trends">
 				<div class="ninety">
-				  <a class="btn btn-xlwhite" href="mainpage.html">{{trend.name}}</a>
+				  <a class="btn btn-xlwhite" v-bind:href="trend.url">{{trend.name}}</a>
 				</div>
 			</div>
 		</div>
