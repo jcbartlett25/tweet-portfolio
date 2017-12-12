@@ -27,7 +27,7 @@ body{
 }
 .search_group .search_group_btn{
 	cursor: pointer;
-	background-color: #288745;
+	background-color: #00bfff;
 	padding:0 35px;
 	
 }
@@ -39,16 +39,16 @@ body{
 
 .search_group .search_group_btn:hover{
 	cursor:pointer;
-	background-color: #28a745;
+	background-color: black;
 	border:none;
 }
 .btn-outline-secondary:hover{
-	background-color:#28a745 !important;
-	border:#28a745;
+	background-color: black !important;
+	border: black;
 }
 .btn_active{
 	cursor: pointer;
-	background-color:#28a745 !important;
+	background-color: #00bfff !important;
 	color:white;
 }
 .btn_filter{

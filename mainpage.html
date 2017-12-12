@@ -30,8 +30,8 @@
 <body >
 
  <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="/"><img src="images/ twitter1.png" width="35" style="margin-left:35px;" /></a>
+      <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+        <a class="navbar-brand" href="/"><img src="images/ twitter.png" width="35" style="margin-left:35px;" /></a>
    
 
         <div class="navbar-collapse" id="navbarsExampleDefault">
@@ -41,7 +41,7 @@
            <ul class="navbar-nav mr-auto">
            
               <li class="nav-item active" style="margin-top:5px;">
-              <a class="nav-link" href="/">Portfolio <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/"><strong>Tweet Portfolio</strong> by FJPY <span class="sr-only">(current)</span></a>
             </li>
            <!-- <li class="nav-item">
               <a class="nav-link" href="#">About us</a>
@@ -143,14 +143,15 @@
     max-width: 290px; margin-left:20px">
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <span class="nav-link" >Search In </span>
+              <span class="nav-link" >List by </span>
             </li>
             <li class="nav-item">
 				<div class="btn-group filter_btns" role="group" aria-label="Basic example">
-				  <button type="button" class="btn btn-outline-success btn_active btn_filter " style="width:50%">All Tweets</button>
-				  <button type="button" class="btn btn-outline-secondary btn_filter" style="width:50%">Favorite</button>	
+				  <button type="button" class="btn btn-outline-success btn_active btn_filter " style="width:50%">Recent</button>
+				  <button type="button" class="btn btn-outline-secondary btn_filter" style="width:50%">Popular</button>	
 				</div>  	
             </li>
+<<<<<<< HEAD
             <li class="nav-item">
                <span class="nav-link" >Tweet Type </span>
                <div class="btn-group filter_btns" role="group" aria-label="Basic example">
@@ -190,6 +191,9 @@
                
                 <button type="button" class="btn btn-success btn_filter filter_btns" style="padding:3px 0;">Filter The Results</button>	
             </li>
+=======
+                        
+>>>>>>> 9fc778440c35a784d400f127a844d586bf830096
           </ul>
 		 </div>
 		
@@ -200,7 +204,7 @@
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
 			  <div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Add  &nbsp; tweet to your collections</h5>
+				<h5 class="modal-title" id="exampleModalLabel">Add Tweet to Folder</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				  <span aria-hidden="true">&times;</span>
 				</button>
@@ -208,7 +212,7 @@
 			  <div class="modal-body">
 				<form>
 				  <div class="form-group">
-					<label for="recipient-name" class="form-control-label">Choose a List</label>
+					<label for="recipient-name" class="form-control-label">Choose a Folder Below:</label>
 						<select class="form-control" id="folder_name">
 						  <!-- <option>Favorite</option>
 						  <option>Customer Created</option>
@@ -229,7 +233,7 @@
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
-				<button type="button" class="btn btn-primary btn-success" id = "add_to_list" data-dismiss="modal">Add to List</button>
+				<button type="button" class="btn btn-primary btn-success" id = "add_to_list" data-dismiss="modal">Add to Folder</button>
         <span style="display: none" id="tweet_id_span"></span>
 			  </div>
 			</div>
@@ -237,12 +241,12 @@
 	</div>
 		 
 		 
-	<!--Modal , Create a list--> 
+	<!--Modal , Create a new folder--> 
 	<div class="modal fade" id="createList" tabindex="-1" role="dialog" aria-labelledby="example1" aria-hidden="true" style="font-size:0.9em;">
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
 			  <div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Create a List</h5>
+				<h5 class="modal-title" id="exampleModalLabel">Create a New Folder</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				  <span aria-hidden="true">&times;</span>
 				</button>
@@ -250,7 +254,7 @@
 			  <div class="modal-body">
 				<form>
 				  <div class="form-group">
-					<input class="form-control" id="new_collection_name" type="text" placeholder="Input the list name" />
+					<input class="form-control" id="new_collection_name" type="text" placeholder="Input the folder name" />
 				  </div>
 		
 				</form>
@@ -258,7 +262,7 @@
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
 				<button type="button" class="btn btn-primary btn-success" id = "create_list" data-dismiss="modal">
-					Create List</button>
+					Create Folder</button>
        <!-- <span style="display: none" id="tweet_id_span"></span>  -->
 			  </div>
 			</div>
@@ -280,10 +284,9 @@
 								  <h6>{{tweet.displayName}}</h6>
 							</div>
 		 					<p>{{tweet.text}}</p>
-              				<!-- <div class="bkv twitter_images" data-grid="images">
-              				<img   src="images/t1.jpg">
-              			
-              				</div> -->
+      				<div v-if="tweet.media != null" class="bkv twitter_images" data-grid="images">
+      				<img   v-bind:src="tweet.media">      			
+      				</div>
 		 				</div>
 		 			</li>
 		 			
@@ -303,7 +306,7 @@
             <nav id="sidebar">
 	             <ul class="list-unstyled components">
                     <!--<p>Favorite Tweets</p> -->
-                    <h6 style="margin-left:30px;">My Favorite Tweet</h6>
+                    <h6 style="margin-left:30px;">Folders</h6>
                     <li id = "favorites">
                        <!--edit list name, delete list btn -->
                         <!-- <div class="edit_cont" style="display:none;">
@@ -423,8 +426,8 @@
 		 	<!--- edit button;  bottom-->	
 		 	<div class="btn_buttom_cont">
 		 		
-		 		<button class="btn btn-outline-success btn_bottom" data-toggle="modal" data-target="#createList"><span class="glyphicon glyphicon-plus" ></span>Create a List</button>
-		 		<button id="edit_favorite_twitter" class="btn btn-outline-success btn_bottom" onclick="editFavorite()"><span class="glyphicon glyphicon-edit" ></span>Edit</button>
+		 		<button class="btn btn-outline-success btn_bottom" data-toggle="modal" data-target="#createList"><span class="glyphicon glyphicon-plus" ></span>  New Folder</button>
+		 		<button id="edit_favorite_twitter" class="btn btn-outline-success btn_bottom" onclick="editFavorite()"><span class="glyphicon glyphicon-edit" ></span>  Edit Folders</button>
 		 	</div>	
 			</div>
 		 	
