@@ -116,10 +116,10 @@ $(document).ready(function(){
         }
     });
 
+    //show one tweet in the collection
     $(document).on('click', '.favorite_list', function(e){
         $("#modal_tweet").modal('show');
         var tweet_id = $(this).closest("li").attr('id');
-        //var tweet_id = tweet.attr('id');
         cb.__call(
             "statuses_show_ID",
             {
@@ -127,9 +127,6 @@ $(document).ready(function(){
             },
             function(reply, rate, err) {
                 var temp_tweet = [];
-                // var each_tweet = reply;
-                // each_tweet["name"] = reply.user.name;
-                // each_tweet["img_src"] = reply.user.profile_image_url;
                 var image = (reply.entities.media) ? reply.entities.media[0].media_url : null;
                 var url = 'https://twitter.com/statuses/' + reply.id_str;
                 temp_tweet.push({name: reply.user.name, text: reply.text, img:reply.user.profile_image_url, media: image, time: moment(reply.created_at).fromNow(), url: url});
