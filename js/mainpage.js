@@ -25,6 +25,23 @@ $(document).ready(function(){
                      $('#sidebar').toggleClass('active');
 					 
                  });
+	 			
+	 $('#filter_twitter .btn_filter').on('click',function(){
+		  $('#filter_twitter .btn_filter').toggleClass('btn_active');
+		
+	 });
+	
+	 $('#filter_time .btn_filter').on('click',function(){
+		  $('#filter_time .btn_filter').toggleClass('btn_active');
+		
+	 });
+	 
+	 $('#filter_type .btn_filter').on('click',function(){
+		  $('#filter_type .btn_filter').toggleClass('btn_active');
+		
+	 });
+	 
+	 
              });
 
 
