@@ -28,22 +28,25 @@ $(document).ready(function(){
 	 			
 	
 	 
-	 $('#filter_twitter .btn_filter').on('click',function(){
-		  $('#filter_twitter .btn_filter').toggleClass('btn_active');
-		
+	 $('#filter_twitter .btn_filter').on('click',function() {
+		  	$('#filter_twitter .btn_filter').toggleClass('btn_active');
+		  	loading_search();
+			filteredSearch();
 	 });
 	
 	 $('#filter_time .btn_filter').on('click',function(){
-		  $('#filter_time .btn_filter').toggleClass('btn_active');
-		
+		  	$('#filter_time .btn_filter').toggleClass('btn_active');
+
 	 });
 	 
 	 $('#filter_type .btn_filter').on('click',function(){
-		  $('#filter_type .btn_filter').toggleClass('btn_active');
-		
+			$('#filter_type .btn_filter').toggleClass('btn_active');
+			loading_search();
+			filteredSearch();
 	 });
 
              });
+
 $(document).on('click','.search_group_btn', function(){
 	
 	loading_search();
@@ -167,9 +170,3 @@ $(document).ready(function(){
 
 	
 });
-
-var answer= '';
-            $('#filter_twitter .btn_active').each(function(){
-                answer= $(this).val(); 
-            });
-            console.log(answer);
