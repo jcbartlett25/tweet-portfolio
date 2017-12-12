@@ -53,7 +53,7 @@ function readyUp() {
 }
 
 function searchTwitter() {
-    params = {q: $('#search_box').val(), count: 30}
+    params = {q: $('#search_box').val(), count: 100}
     cb.__call(
         "search_tweets",
         params,
@@ -63,7 +63,9 @@ function searchTwitter() {
 
             for (var i = 0; i < statuses.length; i++){
                 var status = statuses[i];
-                temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: status.id_str})
+                //console.log(status);
+                var image = (status.entities.media) ? status.entities.media[0].media_url : null;
+                temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: status.id_str, media: image});
             }
             feed_vue.tweets = temp_tweets;
             console.log(temp_tweets);

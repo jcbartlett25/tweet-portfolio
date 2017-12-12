@@ -217,10 +217,9 @@
 								  <h6>{{tweet.displayName}}</h6>
 							</div>
 		 					<p>{{tweet.text}}</p>
-              				<!-- <div class="bkv twitter_images" data-grid="images">
-              				<img   src="images/t1.jpg">
-              			
-              				</div> -->
+      				<div v-if="tweet.media != null" class="bkv twitter_images" data-grid="images">
+      				<img   v-bind:src="tweet.media">      			
+      				</div>
 		 				</div>
 		 			</li>
 		 			
