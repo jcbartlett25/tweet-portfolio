@@ -167,3 +167,9 @@ $(document).ready(function(){
 
 	
 });
+
+var answer= '';
+            $('#filter_twitter .btn_active').each(function(){
+                answer= $(this).val(); 
+            });
+            console.log(answer);
