@@ -94,7 +94,7 @@
 				</li>
            -->
            
-            <li class="nav-item" style="margin-bottom:10px;margin-top:25px;">
+            <li class="nav-item" style="margin-bottom:30px;margin-top:25px;">
             	<div class="input-group  search_group btn-group filter_btns">
 				  <input type="text" class="form-control search_txt" id="search_box" placeholder="Search for..." aria-label="Search for..." style="border:none;">
 			  	 <span class="input-group-btn">
@@ -105,14 +105,14 @@
              
              
              <!--- Advanced search --->
-             <li class="nav-item">
+          <!--   <li class="nav-item">
 				<div class="btn-group filter_btns" style="margin-left:30px;margin-bottom:25px;" >
                    <button class="btn btn-outline-success my-2 my-sm-2 search_btn" type="button" id="sidebarCollapse" style="font-size:1em;">
                     <i class="glyphicon glyphicon-filter" ></i>            
                                 Filter Search Results</button>
                 </div>
             </li>
-				
+				-->
           <div id="advanced_search">
             <li class="nav-item">
 				<div class="btn-group filter_btns" id="filter_twitter" role="group" aria-label="Basic example">
@@ -126,12 +126,13 @@
             <li class="nav-item">
                <span class="nav-link" >Tweet Type </span>
                <div class="btn-group filter_btns" role="group" aria-label="Basic example" id="filter_type">
-              	 <button type="button" value="all" class="btn btn-outline-success btn_active btn_filter" style="width:50%">All</button>
-				  <button type="button" value="text" class="btn btn-outline-secondary  btn_filter" style="width:50%">Text</button>
-				  <button type="button" value="image" class="btn btn-outline-secondary btn_filter" style="width:50%">Image</button>	
+              	 <button type="button" value="all" class="btn btn-outline-success btn_active btn_filter " style="width:50%" id="btn_all">All</button>
+				  <button type="button" value="text" class="btn btn-outline-secondary  btn_filter" style="width:50%" id="btn_text">Text</button>
+				  <button type="button" value="image" class="btn btn-outline-secondary btn_filter" style="width:50%" id="btn_img">Image</button>	
 
 				</div>
             </li>
+            <!--
            <li class="nav-item">
                <span class="nav-link" >Time </span>
                
@@ -150,7 +151,7 @@
 				  	<input  id="datepicker2" type="text"  aria-label="Text input with checkbox">
 				</div>
             </li>
-            
+            -->
            </div>
           </ul>
 

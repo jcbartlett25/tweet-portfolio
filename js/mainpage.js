@@ -34,24 +34,37 @@ $(document).ready(function(){
 		  	loading_search();
 			filteredSearch();
 	 });
-	
+	/*
 	 $('#filter_time .btn_filter').on('click',function(){
 		  	$('#filter_time .btn_filter').toggleClass('btn_active');
 
 	 });
-	 
+	 */
+	
 	 $('#filter_type .btn_filter').on('click',function(){
-			$('#filter_type .btn_filter').toggleClass('btn_active');
+			//$('#filter_type .btn_filter').toggleClass('btn_active');  
+		 
+			$('#filter_type').children().removeClass('btn_active');
+		 	$(this).addClass('btn_active');
 			loading_search();
 			filteredSearch();
 	 });
 
              });
 
+/*
+function changeActive(var event)
+{
+	$('#filter_type').children().removeClass('btn_active');
+	alert(event);
+}
+*/
+
 $(document).on('click','.search_group_btn', function(){
 	
 	loading_search();
 });
+
 
 function loading_search(){
 	document.getElementById("loader").style.display = "block";
