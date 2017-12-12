@@ -44,7 +44,21 @@ $(document).ready(function(){
 	 });
 
              });
+$(document).on('click','.search_group_btn', function(){
+	
+	loading_search();
+});
 
+function loading_search(){
+	document.getElementById("loader").style.display = "block";
+	myVar = setTimeout(showPage, 2200);
+	
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+
+}
 
 // right click on the right sidebar
 $(document).ready(function(){
