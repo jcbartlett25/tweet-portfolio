@@ -392,7 +392,12 @@
 							  <button class="zc asz btn btn-outline-secondary btn_self" data-toggle="modal" data-target="#Modal" v-bind:data-whatever="tweet.id">
 								   <span class="glyphicon glyphicon-heart" ></span> Add
 								  </button>
+								  <button class="zc asz btn btn-outline-secondary btn_self"  style="margin-right:15px;" v-bind:data-whatever="tweet.id">
+								   <span class="glyphicon glyphicon-comment" ></span> Twitter
+								  </button>
+								  
 								  <h6>{{tweet.displayName}}</h6>
+								  <span class="tweet_time">dd</span>
 							</div>
 		 					<p>{{tweet.text}}</p>
       				<div v-if="tweet.media != null" class="bkv twitter_images" data-grid="images">
