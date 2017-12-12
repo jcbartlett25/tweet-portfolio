@@ -63,8 +63,8 @@
 		  
 		</div>
        -->
-        
-        <div class="col-sm-3 favorite_btn">
+        <div class="col-sm-7"></div>
+        <div class="col-sm-2 favorite_btn">
           <button class="btn btn-outline-success my-2 my-sm-2 search_btn" type="button" id="sidebarCollapse" >
                                 <i class="glyphicon glyphicon-align-left"></i>
                                 <span>Toggle Sidebar</span></button>
@@ -83,7 +83,7 @@
        
        <!-- left container Advanced search -->
        
-        <div class="wrapper" style="width:300px;float:left;">
+        <div class="wrapper" style="width:300px;float:left;position: fixed;">
             <!-- Sidebar Holder -->
             <nav id="sidebar" style="width:250px;background:none !important;">
               
@@ -111,11 +111,7 @@
 				</div>  	
             </li>
             
-            
-            
-            
-            
-            
+       
             <li class="nav-item">
                <span class="nav-link" >Tweet Type </span>
                <div class="btn-group filter_btns" role="group" aria-label="Basic example" id="filter_type">
@@ -145,10 +141,6 @@
             </li>
             
            
-              <li class="nav-item" style="margin-top:115px;">
-               
-                <button type="button" class="btn btn-success btn_filter filter_btns" style="padding:3px 0;">Filter The Results</button>	
-            </li>
           </ul>
 
             </nav>
@@ -271,7 +263,7 @@
 <!-- Modal -->
 <div class="modal fade bd-example-modal-lg" id="modal_tweet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
   <div class="modal-dialog" role="document" >
-    <div class="modal-content" style="width:800px;margin:auto;">
+    <div class="modal-content" style="width:auto;margin:auto;margin-top:100px;">
    
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Favorite Tweet</h5>
@@ -303,7 +295,12 @@
 		 	
 		 	</div>
 	
-        
+        <div class="modal-footer">
+				
+				<button type="button" class="btn btn-primary btn-success" id = "goto_tweet" data-dismiss="modal">
+					Go to Tweet Page</button>
+       <!-- <span style="display: none" id="tweet_id_span"></span>  -->
+			  </div>
         
         <!-- end -- here is the favorite tweet info -->
       </div>
