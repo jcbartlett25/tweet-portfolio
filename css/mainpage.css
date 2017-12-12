@@ -39,7 +39,7 @@ body{
 
 .search_group .search_group_btn:hover{
 	cursor:pointer;
-	background-color: black;
+	background-color: #28a745;
 	border:none;
 }
 .btn-outline-secondary:hover{
@@ -407,11 +407,11 @@ a.article, a.article:hover {
 
 .edit_cont{
 	
-	position:relative;
-	right:10px;
+	position:absolute;
+	right:15px;
 	display:inline-block;
-	width:120px;
-	height:40px;
+	width:30px;
+	height:30px;
 	margin:0;
 	margin-top:3px;
 	float:right;
@@ -452,6 +452,7 @@ a.article, a.article:hover {
 	height:40px;
 	z-index:9999;
 	display:inline-block;
+	background:#333;
 }
 .btn_bottom{
 	margin-left:30px;

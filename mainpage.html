@@ -55,7 +55,7 @@
 		 
       	 <div class="input-group col-sm-6 search_group">
          
-		  <input type="text" class="form-control search_txt" id="search_box" value="animals" placeholder="Search for..." aria-label="Search for..." style="border:none;">
+		  <input type="text" class="form-control search_txt" id="search_box" placeholder="Search for..." aria-label="Search for..." style="border:none;">
 		   <span class="input-group-btn">
 			<button class="btn btn-secondary search_group_btn " style="border:none;" onclick="searchTwitter();" type="button" >Search</button>
 		  </span>
@@ -115,7 +115,7 @@
 				  
 				</div>
                
-                <div class=" filter_btns btn_filter" style="margin-top:20px; display: block;">
+                <div class=" filter_btns btn_filter" style="margin-top:20px; display: block;color:#333;">
 				   <span class="" style="font-size:1.5em;margin-top:15px;">From</span>
 					<input id="datepicker"  type="text"  aria-label="Text input with checkbox">
 				  
@@ -301,10 +301,10 @@
 		 <div class="right_cont" style="height: 100%;">
 		 	<div class=" like_cont " style="height: 100%;background:#333;color:#222;margin-bottom:45px;" id="like">
 		 		<!---file -->
-			<div class="wrapper" >
+			<div class="wrapper"  >
             <!-- Sidebar Holder -->
-            <nav id="sidebar">
-	             <ul class="list-unstyled components">
+            <nav id="sidebar" >
+	             <ul class="list-unstyled components" >
                     <!--<p>Favorite Tweets</p> -->
                     <h6 style="margin-left:30px;">Folders</h6>
                     <li id = "favorites">
@@ -455,7 +455,7 @@
     <script id = "favorites" type="text/html">
       <li id = {{collection_id}} >
       <div class="edit_cont" style="display:none;">
-       <span class="btn btn-primary"><span class="glyphicon glyphicon-pencil" ></span>Rename</span>
+       
        <span class="btn btn-danger delete_icon_col"><span class="glyphicon glyphicon-trash" ></span></span>
       </div>
       <a href={{page}} data-toggle="collapse" aria-expanded="false">

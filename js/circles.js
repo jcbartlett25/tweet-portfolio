@@ -20,7 +20,7 @@ $(document).ready(function () {
             radius: 15,
         });
         path.scale(Math.random() + 0.2);
-        path.fillColor = new Color(0, 191, 255, 0.4);
+        path.fillColor = new Color(0, 200, 0, 0.4);
     }
     view.draw();
 
