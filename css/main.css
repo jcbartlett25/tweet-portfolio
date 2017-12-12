@@ -134,17 +134,24 @@ h5 {
 	font-size: 1em; 
 	width: 100%;
 	height: 100%;
-	color: black;
-	background-color: white;
-	
-}
-.btn-xlwhite:hover { 
 	color: white;
 	background-color: black;
+	border-radius: 0px;
+	border: 0px;
+	padding: 2.5rem 1rem;
+}
+.btn-xlwhite:hover { 
+	color: black;
+	background-color: white;
 	
 }
 
 .ninety{
   width: 90%;
   margin: 5px;
+}
+
+.col {
+	padding-right: 0px;
+    padding-left: 0px;
 }
