@@ -40,7 +40,10 @@ $(document).ready(function(){
 
 	 });
 	 */
-	
+	$(document).on('click','.btn_self', function(){
+		$(this).addClass('btn_active');
+	});
+	 
 	 $('#filter_type .btn_filter').on('click',function(){
 			//$('#filter_type .btn_filter').toggleClass('btn_active');  
 		 

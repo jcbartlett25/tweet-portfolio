@@ -264,6 +264,34 @@
 	
 <!--Modal , show tweet from the favorite list--> 
 
+<!--Modal , alert to delete a folder--> 
+	<div class="modal fade" id="Modal_delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="font-size:0.9em;">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Are you sure to delete the folder?</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<form>
+				  <div class="form-group">
+					<label for="recipient-name" class="form-control-label">Are you sure to delete the folder ? All the tweet in the folder will be deleted.</label>
+					</div>	
+				</form>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+				<button type="button" class="btn btn-primary btn-danger" id = "add_to_list" data-dismiss="modal">Delete Folder</button>
+        <span style="display: none" id="tweet_id_span"></span>
+			  </div>
+			</div>
+		  </div>
+	</div>
+		
+	
+<!--Modal , show tweet from the favorite list--> 
 
 <!-- Modal -->
 <div class="modal fade bd-example-modal-lg" id="modal_tweet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >

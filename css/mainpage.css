@@ -517,6 +517,9 @@ a.article, a.article:hover {
   display: none;
   text-align: center;
 }
+.btn_active{
+	color:#fff !important;
+}
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
