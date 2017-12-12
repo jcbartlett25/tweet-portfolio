@@ -31,8 +31,9 @@ h3 {
 	text-align: center;
 }
 h5 {
-	font-size: 3em;
+	font-size: 2.5em;
 	text-align: center;
+	padding: 2.5rem 1rem;
 
 }
 #header { 
@@ -138,7 +139,7 @@ h5 {
 	background-color: black;
 	border-radius: 0px;
 	border: 0px;
-	padding: 2.5rem 1rem;
+	padding: 3.5rem 1rem;
 }
 .btn-xlwhite:hover { 
 	color: black;
