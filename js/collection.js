@@ -54,6 +54,7 @@ $(document).ready(function(){
 
     //delete one tweet in collection
     $(document).on("click", ".delete_icon_cont", function(){
+        $('#modal_tweet').modal('hide');
         var tweet = $(this).closest("li");
         var tweet_id = tweet.attr('id');
         var collection_id = tweet.parents("li")[0].attributes.id.nodeValue;
