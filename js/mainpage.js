@@ -82,5 +82,18 @@ function showPage() {
   document.getElementById("loader").style.display = "none";
   $('.btn_self').removeClass('btn_active');
 }
+
+// right click on the right sidebar
+$(document).ready(function(){
+	
+	context.init({
+    fadeSpeed: 100,
+    filter: function ($obj){},
+    above: 'auto',
+    preventDoubleContext: true,
+    compress: false
+	});
+		
+	context.settings({compress: true});
 	
 });
