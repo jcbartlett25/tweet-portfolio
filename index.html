@@ -16,14 +16,21 @@
 
 <body>
 
+   
     <div id="mainContainer">
         <canvas id="mainCanvas" keepalive="true"></canvas>
         <div id="header" class="text-center">
-            <h1>TweetPortfolio</h1>
-			<h2>Start organizing your tweets after a search...</h2>
-            <a class="btn btn-xl" href="#search">Search</a>
+            <h1 class="title">TweetPortfolio</h1>
+			<h2 class="title_sub">Start organizing your tweets after a search...</h2>
+            <a class="btn btn-xl btn-success btn_index_search" href="#search">Search</a>
         </div>
     </div>
+    
+	<div class="col-sm-2 favorite_btn">
+          <button class="btn btn-outline-success my-2 my-sm-2 search_btn" type="button" id="sidebarCollapse">
+		  <span>Favorite Tweets</span>
+		  </button>
+	</div>
 	
 	<div id="trending" >
 		<div id="halftrending">
