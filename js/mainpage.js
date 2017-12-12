@@ -28,6 +28,7 @@ $(document).ready(function(){
                  });
 	 			
 	*/
+	 loading_search();
 	 
 	 $('#filter_twitter .btn_filter').on('click',function() {
 		  	$('#filter_twitter .btn_filter').toggleClass('btn_active');
