@@ -20,13 +20,14 @@ $(document).ready(function(){
 
 
  $(document).ready(function () {
-                 $('#sidebarCollapse').on('click', function () {
+     /*          
+	 $('#sidebarCollapse').on('click', function () {
 					 
                      $('#sidebar').toggleClass('active');
 					 
                  });
 	 			
-	
+	*/
 	 
 	 $('#filter_twitter .btn_filter').on('click',function(){
 		  $('#filter_twitter .btn_filter').toggleClass('btn_active');
@@ -51,7 +52,7 @@ $(document).on('click','.search_group_btn', function(){
 
 function loading_search(){
 	document.getElementById("loader").style.display = "block";
-	myVar = setTimeout(showPage, 2200);
+	myVar = setTimeout(showPage, 2000);
 	
 }
 
