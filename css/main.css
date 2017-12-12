@@ -156,3 +156,27 @@ h5 {
 	padding-right: 0px;
     padding-left: 0px;
 }
+
+.title{
+	font-size:5em;
+}
+.title_sub{
+	font-size: 1.6em;
+	color:#666;
+}
+
+.btn_index_search{
+	font-size:2em;
+	padding:10px 60px;
+	margin-top:30px;
+}
+.favorite_btn{
+	position:fixed;
+	top:20px;
+	right:0px;
+	cursor: pointer;
+}
+.trending{
+	
+	
+}
