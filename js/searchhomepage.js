@@ -202,5 +202,10 @@ function getTrends() {
         }, true);
 }
 
+$('#search_form').submit(function(event){
+    event.preventDefault();
+    window.location.href = encodeURI('./mainpage.html?q=' + $('#search_value').val());
+});
+
 readyUp();
 getTrends();

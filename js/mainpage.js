@@ -26,6 +26,8 @@ $(document).ready(function(){
 					 
                  });
 	 			
+	
+	 
 	 $('#filter_twitter .btn_filter').on('click',function(){
 		  $('#filter_twitter .btn_filter').toggleClass('btn_active');
 		
@@ -40,8 +42,7 @@ $(document).ready(function(){
 		  $('#filter_type .btn_filter').toggleClass('btn_active');
 		
 	 });
-	 
-	 
+
              });
 
 
