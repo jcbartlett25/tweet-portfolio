@@ -77,7 +77,7 @@ function getTrends() {
         function (response) {
 
             var trending_topics = [];
-            for (var i = 0; i < 5; i++) {
+            for (var i = 0; i < 8; i++) {
                 var trend = response[0].trends[i];
                 if (trend.name.charAt(0) === "#") {
                     trend.url = trend.name.substr(1);
