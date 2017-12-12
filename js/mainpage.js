@@ -71,14 +71,16 @@ $(document).on('click','.search_group_btn', function(){
 
 
 function loading_search(){
+	
 	document.getElementById("loader").style.display = "block";
 	myVar = setTimeout(showPage, 2000);
+	
 	
 }
 
 function showPage() {
   document.getElementById("loader").style.display = "none";
-
+  $('.btn_self').removeClass('btn_active');
 }
 
 // right click on the right sidebar
