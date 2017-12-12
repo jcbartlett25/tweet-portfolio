@@ -248,9 +248,10 @@
 </button>
 
 <!-- Modal -->
-<div class="modal fade bd-example-modal-lg" id="modal_tweet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
+<div class="modal fade bd-example-modal-lg" id="modal_tweet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog" role="document" >
+    <div class="modal-content" style="width:800px;margin:auto;">
+   
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Favorite Tweet</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -261,9 +262,26 @@
         <!--- here is the favorite tweet info -->
         
         
-        
-        
-        
+		 	<div class="main_cont" >
+		 		<ul style="">
+		 			<li class="oq b acx bku">
+		 				<img class="bkp ru uk abc" v-bind:src='tweet.img'>
+		 			<div class="or" >
+		 					<div class="bky">
+							 
+								  <h6>ddddd</h6>
+							</div>
+		 					<p>dddddd</p>
+      				<div v-if="tweet.media != null" class="bkv twitter_images" data-grid="images">
+      				<img   v-bind:src="tweet.media">      			
+      				</div>
+		 				</div>
+		 			</li>
+		 			
+		 		</ul>
+		 	
+		 	</div>
+	
         
         
         <!-- end -- here is the favorite tweet info -->
