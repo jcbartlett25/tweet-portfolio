@@ -66,7 +66,7 @@
         <div class="col-sm-7"></div>
         <div class="col-sm-2 favorite_btn">
           <button class="btn btn-outline-success my-2 my-sm-2 search_btn" type="button" id="sidebarCollapse" data-toggle="modal" data-target="#helpModal">
-                                <i class="glyphicon glyphicon-align-left"></i>
+                                <i class="glyphicon glyphicon-question-sign glyphicon-align-left"></i>
                                 <span>Help</span></button>
 		</div>
 		
@@ -102,8 +102,18 @@
 			  </span>
 				</div>
 		 </li>
-           
-           
+             
+             
+             <!--- Advanced search --->
+          <!--   <li class="nav-item">
+				<div class="btn-group filter_btns" style="margin-left:30px;margin-bottom:25px;" >
+                   <button class="btn btn-outline-success my-2 my-sm-2 search_btn" type="button" id="sidebarCollapse" style="font-size:1em;">
+                    <i class="glyphicon glyphicon-filter" ></i>            
+                                Filter Search Results</button>
+                </div>
+            </li>
+				-->
+          <div id="advanced_search">
             <li class="nav-item">
 				<div class="btn-group filter_btns" id="filter_twitter" role="group" aria-label="Basic example">
 				  <button type="button" value="recent" id="recent_filter" class="btn btn-outline-success btn_active btn_filter " style="width:50%">Recent</button>
@@ -116,12 +126,13 @@
             <li class="nav-item">
                <span class="nav-link" >Tweet Type </span>
                <div class="btn-group filter_btns" role="group" aria-label="Basic example" id="filter_type">
-              	 <button type="button" value="all" class="btn btn-outline-success btn_active btn_filter" style="width:50%">All</button>
-				  <button type="button" value="text" class="btn btn-outline-secondary  btn_filter" style="width:50%">Text</button>
-				  <button type="button" value="image" class="btn btn-outline-secondary btn_filter" style="width:50%">Image</button>	
+              	 <button type="button" value="all" class="btn btn-outline-success btn_active btn_filter " style="width:50%" id="btn_all">All</button>
+				  <button type="button" value="text" class="btn btn-outline-secondary  btn_filter" style="width:50%" id="btn_text">Text</button>
+				  <button type="button" value="image" class="btn btn-outline-secondary btn_filter" style="width:50%" id="btn_img">Image</button>	
 
 				</div>
             </li>
+            <!--
            <li class="nav-item">
                <span class="nav-link" >Time </span>
                
@@ -140,8 +151,8 @@
 				  	<input  id="datepicker2" type="text"  aria-label="Text input with checkbox">
 				</div>
             </li>
-            
-           
+            -->
+           </div>
           </ul>
 
             </nav>
@@ -253,6 +264,34 @@
 	
 <!--Modal , show tweet from the favorite list--> 
 
+<!--Modal , alert to delete a folder--> 
+	<div class="modal fade" id="Modal_delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="font-size:0.9em;">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Are you sure to delete the folder?</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<form>
+				  <div class="form-group">
+					<label for="recipient-name" class="form-control-label">Are you sure to delete the folder ? All the tweet in the folder will be deleted.</label>
+					</div>	
+				</form>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+				<button type="button" class="btn btn-primary btn-danger" id = "add_to_list" data-dismiss="modal">Delete Folder</button>
+        <span style="display: none" id="tweet_id_span"></span>
+			  </div>
+			</div>
+		  </div>
+	</div>
+		
+	
+<!--Modal , show tweet from the favorite list--> 
 
 <!-- Modal -->
 <div class="modal fade bd-example-modal-lg" id="modal_tweet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
