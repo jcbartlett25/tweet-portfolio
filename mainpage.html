@@ -126,8 +126,8 @@
 
 				</div>  	
             </li>
-            
-			<hr>
+            <br/>
+			
        
             <li class="nav-item">
                <span class="nav-link" >Search Results Type </span>
@@ -139,7 +139,7 @@
 				</div>
             </li>
 			
-			<hr>
+			
             <!--
            <li class="nav-item">
                <span class="nav-link" >Time </span>
@@ -392,9 +392,9 @@
 							  <button class="zc asz btn btn-outline-secondary btn_self"  data-toggle="modal" data-target="#Modal" v-bind:data-whatever="tweet.id">
 								   <span class="glyphicon glyphicon-heart" ></span> Add
 								  </button>
-								  <button class="zc asz btn btn-outline-secondary btn_self"  style="margin-right:15px;" v-bind:data-whatever="tweet.id">
-								   <a v-bind:href="tweet.url"><span class="glyphicon glyphicon-comment" ></span> Twitter</a>
-								  </button>
+								  <a class="zc asz btn btn-outline-secondary btn_self"  style="margin-right:15px;" v-bind:data-whatever="tweet.id"  v-bind:href="tweet.url" target="_blank">
+								   <span class="glyphicon glyphicon-comment" ></span> Twitter
+								  </a>
 								  
 								  <h6>{{tweet.displayName}}</h6>
 								  <span class="tweet_time">{{tweet.time}}</span>
