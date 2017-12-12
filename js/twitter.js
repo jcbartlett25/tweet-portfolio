@@ -125,7 +125,7 @@ function filteredSearch() {
                     continue;
                 }
                 var tweetID = getActualTweetID(status);
-                temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: tweetID, media: image, time: moment(status.created_at).fromNow(), url: url});
+                temp_tweets.push({displayName: status.user.name, text: status.text, img:status.user.profile_image_url, id: tweetID, media: image, time: moment(status.created_at).fromNow(), url: url, alt_time: status.created_at});
             }
             feed_vue.tweets = temp_tweets;
             console.log(temp_tweets);

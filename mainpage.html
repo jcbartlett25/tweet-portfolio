@@ -312,11 +312,11 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" v-for="tweet in tweets">
         <!--- here is the favorite tweet info -->
         
         
-		 	<div class="main_cont" v-for="tweet in tweets">
+		 	<div class="main_cont" >
 		 		<ul style="">
 		 			<li class="oq b acx bku">
 		 				<img class="bkp ru uk abc" v-bind:src='tweet.img'>
@@ -338,8 +338,8 @@
 	
         <div class="modal-footer">
 				
-				<button type="button" class="btn btn-primary btn-success" id = "goto_tweet" data-dismiss="modal">
-					Go to Tweet Page</button>
+				<a v-bind:href="tweet.url">
+					View on twitter</a>
        <!-- <span style="display: none" id="tweet_id_span"></span>  -->
 			  </div>
         
