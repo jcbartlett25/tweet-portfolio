@@ -35,9 +35,8 @@ $(document).ready(function(){
         }
     );
 
-    //delete the collection
-    $(document).on("click", ".delete_icon_col", function(){
-        
+    //delete one collection
+    $(document).on("click", ".delete_icon_col", function(){  
         var collection_id = $(this).closest('li').attr('id');
         //console.log(collection_id);
         cb.__call(
@@ -53,19 +52,15 @@ $(document).ready(function(){
     });
 
     //delete one tweet in collection
-    $(document).on("click", ".delete_icon_cont", function(){
-        //alert('hide');       
+    $(document).on("click", ".delete_icon_cont", function(){       
         $('#modal_tweet').modal('hide');
         var tweet = $(this).closest("li");
         var tweet_id = tweet.attr('id');
-        var collection_id = tweet.parents("li")[0].attributes.id.nodeValue;
-        
-        //console.log(collection_id);
+        var collection_id = tweet.parents("li")[0].attributes.id.nodeValue; 
         cb.__call(
             "collections_entries_curate",
             {
                 "id" : collection_id,
-                //"tweet_id": tweet_id
                 "changes": [
                     { 
                         "op": "remove",
@@ -89,6 +84,7 @@ $(document).ready(function(){
         createList();
     });
 
+    //use the modal to pass tweet_id value
     $('#Modal').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget);
         var text = button.data('whatever');
@@ -96,7 +92,7 @@ $(document).ready(function(){
         $('#tweet_id_span').text(text);
     }) 
 
-    //return shortcuts for adding a tweet to a collection
+    //return shortcut for adding a tweet to a collection
     $(document).on('keyup',function(e){
         if(e.keyCode === 13){
             //console.log($('#createList')[0].style.display);
@@ -107,7 +103,7 @@ $(document).ready(function(){
         }
     });
 
-    //return shortcuts for creating a new collection
+    //return shortcut for creating a new collection
     $("#new_collection_name").keydown(function(e) {
         if (e.which == "13") {
             //alert('12');
@@ -116,7 +112,7 @@ $(document).ready(function(){
         }
     });
 
-    //show one tweet in the collection
+    //show detailed information of the tweet in the collection
     $(document).on('click', '.favorite_list', function(e){
         $("#modal_tweet").modal('show');
         var tweet_id = $(this).closest("li").attr('id');
@@ -141,14 +137,10 @@ function addToList() {
     var select = $("#folder_name option:selected");
     var collection = select.val();
     var tweet = $('#tweet_id_span').text();
-    //alert(tweet);
-    //console.log(collection);
-    //console.log(tweet);
     cb.__call(
         "collections_entries_curate",
         {
             "id": collection,
-            //"op": "add"
             "changes" : [
                 {
                     "op": "add",
@@ -158,7 +150,7 @@ function addToList() {
         },
         function(reply, rate, err) {
             if (reply.response.errors[0]) {
-                //console.log(reply.response.errors[0]);
+                //alert error message
                 alert(reply.response.errors[0].reason);
 
             } else {
@@ -173,7 +165,6 @@ function addToList() {
                         var name = reply2.user.name;
                         var text = reply2.text;
                         addtweet(parent, tweet, img_src, name, text);
-                        //alert('success');
                     }
                 );
             }
@@ -194,7 +185,6 @@ function createList() {
         function(reply, rate, err) {
             var each_collection = reply.response;
             var index = $("#favorites").children("li").length;
-            //console.log(index); 
             each_collection["page"] = "#pageSubmenu" + index;
             each_collection["subpage"] = "pageSubmenu" + index;
             each_collection["collection_id"] = reply.response.timeline_id;
@@ -206,7 +196,6 @@ function createList() {
         }
     );
     $("#createList").modal('hide');
-    //alert('success');
 }
 
 function addtweets(timeline_id, subpage) {
@@ -218,8 +207,6 @@ function addtweets(timeline_id, subpage) {
     function (reply2, rate, err) {
         //console.log(timeline_id);
         var parent = document.getElementById(subpage);
-        //console.log(reply2);
-        //console.log(reply2.response.timeline.length);
         for (var i = 0; i < reply2.response.timeline.length; i ++) {
             var tweet_id = reply2.response.timeline[i].tweet.id;
             var each_tweet = reply2.objects.tweets[tweet_id];
@@ -239,7 +226,7 @@ function addtweets(timeline_id, subpage) {
 
 
 function addtweet(parent, tweet_id, img_src, name, text) {
-    //console.log(parent);
+    //add tweet to the folder panel
     var a = document.createElement('a');
     var li = document.createElement('li');
     li.className = 'favorite_list';
@@ -259,7 +246,7 @@ function addtweet(parent, tweet_id, img_src, name, text) {
     span2.innerHTML = text;
     var br=document.createElement('br'); 
 	
-	//kuer --delete btn
+
 	var div_delete =document.createElement('div');
 	div_delete.className='delete_icon_cont';
 	var span_delete1 = document.createElement('span');
@@ -283,6 +270,7 @@ function addtweet(parent, tweet_id, img_src, name, text) {
     parent.appendChild(li);
 }
 
+//hide delete buttons when unnecessary
 var Is_edit_btn =true;
 function editFavorite()
 {
@@ -297,8 +285,7 @@ function editFavorite()
 		div2.show();
 		icon.addClass('btn-success');
 		icon.removeClass('btn-outline-success');
-		//icon.innerHTML ='xxxx';
-		
+		//icon.innerHTML ='xxxx';		
 	}else{
 		Is_edit_btn = true;
 		icon.removeClass('btn-success');
