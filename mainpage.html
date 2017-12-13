@@ -17,13 +17,6 @@
 <!-- chen edited css-->
 <link href="css/mainpage.css" rel="stylesheet" >
 
-
-<!--- right click --->
-<link href="css/context.standalone.css" rel="stylesheet" >
-
-<link href="css/gijgo.css" rel="stylesheet" type="text/css" >
-<!--<link href="css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous">
--->
 <link rel="icon" href="favicon/tweetportfolio.ico">
 	
 </head>
@@ -44,25 +37,9 @@
               <li class="nav-item active" style="margin-top:5px;">
               <a class="nav-link" href="./index.html"><strong>TweetPortfolio</strong> by FJPY <span class="sr-only">(current)</span></a>
             </li>
-           <!-- <li class="nav-item">
-              <a class="nav-link" href="#">About us</a>
-            </li>
-            -->
           </ul>
           </div>
           
-          
-        
-		 <!--
-      	 <div class="input-group col-sm-6 search_group">
-         
-		  <input type="text" class="form-control search_txt" id="search_box" placeholder="Search for..." aria-label="Search for..." style="border:none;">
-		   <span class="input-group-btn">
-			<button class="btn btn-secondary search_group_btn " style="border:none;" onclick="searchTwitter();" type="button" >Search</button>
-		  </span>
-		  
-		</div>
-       -->
         <div class="col-sm-7"></div>
         <div class="col-sm-2 favorite_btn">
           <button class="btn btn-outline-success my-2 my-sm-2 search_btn" type="button" id="sidebarCollapse" data-toggle="modal" data-target="#helpModal">
@@ -88,11 +65,7 @@
             <nav id="sidebar" style="width:250px;background:none !important;">
               
                <ul class="nav nav-pills flex-column" id="left_sidebar">
-			<!--	
-			  <li class="nav-item">
-				  <span class="nav-link" >Search In </span>
-				</li>
-           -->
+
            
             <li class="nav-item" style="margin-bottom:10px;margin-top:25px;">
             	<div class="input-group  search_group btn-group filter_btns">
@@ -109,16 +82,6 @@
 			</div>
 		 </li>
              
-             
-             <!--- Advanced search --->
-          <!--   <li class="nav-item">
-				<div class="btn-group filter_btns" style="margin-left:30px;margin-bottom:25px;" >
-                   <button class="btn btn-outline-success my-2 my-sm-2 search_btn" type="button" id="sidebarCollapse" style="font-size:1em;">
-                    <i class="glyphicon glyphicon-filter" ></i>            
-                                Filter Search Results</button>
-                </div>
-            </li>
-				-->
 				
           <div id="advanced_search">
 			
@@ -146,26 +109,6 @@
             </li>
 			
 			
-            <!--
-           <li class="nav-item">
-               <span class="nav-link" >Time </span>
-               
-                <div class="btn-group filter_btns" role="group" aria-label="Basic example" id="filter_time">
-              	  <button type="button" class="btn btn-outline-success btn_active btn_filter" style="width:50%">All</button>
-				  <button type="button" class="btn btn-outline-secondary  btn_filter" style="width:50%"> 1 day</button>
-				  <button type="button" class="btn btn-outline-secondary btn_filter" style="width:50%"> 7 days</button>	
-				 			  
-				</div>
-               
-                <div class=" filter_btns btn_filter" style="margin-top:20px; display: block;color:#333;">
-				   <span class="" style="font-size:1.5em;margin-top:15px;">From</span>
-					<input id="datepicker"  type="text"  aria-label="Text input with checkbox">
-				  
-				    <span class="" style="font-size:1.5em;margin-top:15px;">to</span>
-				  	<input  id="datepicker2" type="text"  aria-label="Text input with checkbox">
-				</div>
-            </li>
-            -->
            </div>
           </ul>
 
@@ -175,64 +118,6 @@
 		</div>
        
        
-       
-       <!---
-        <div class="col-2.5 d-sm-block bg-light sidebar" style=" min-width: 270px;
-    max-width: 290px; margin-left:20px">
-          <ul class="nav nav-pills flex-column">
-            <li class="nav-item">
-              <span class="nav-link" >List by </span>
-            </li>
-            <li class="nav-item">
-				<div class="btn-group filter_btns" role="group" aria-label="Basic example">
-				  <button type="button" class="btn btn-outline-success btn_active btn_filter " style="width:50%">Recent</button>
-				  <button type="button" class="btn btn-outline-secondary btn_filter" style="width:50%">Popular</button>	
-				</div>  	
-            </li>
-            <li class="nav-item">
-               <span class="nav-link" >Tweet Type </span>
-               <div class="btn-group filter_btns" role="group" aria-label="Basic example">
-              	 <button type="button" class="btn btn-outline-success btn_active btn_filter" style="width:50%">All</button>
-				  <button type="button" class="btn btn-outline-secondary  btn_filter" style="width:50%">Text</button>
-				  <button type="button" class="btn btn-outline-secondary btn_filter" style="width:50%">Image</button>	
-				   <button type="button" class="btn btn-outline-secondary btn_filter" style="width:50%">Video</button>	
-				</div>
-            </li>
-           <li class="nav-item">
-               <span class="nav-link" >Time </span>
-               
-                <div class="btn-group filter_btns" role="group" aria-label="Basic example">
-              	  <button type="button" class="btn btn-outline-success btn_active btn_filter" style="width:50%">All</button>
-				  <button type="button" class="btn btn-outline-secondary  btn_filter" style="width:50%"> 1 day</button>
-				  <button type="button" class="btn btn-outline-secondary btn_filter" style="width:50%"> 1 week</button>	
-				   <button type="button" class="btn btn-outline-secondary btn_filter" style="width:50%">1 month</button>	
-				  
-				</div>
-               
-                <div class=" filter_btns btn_filter" style="margin-top:20px; display: block;">
-				   <span class="" style="font-size:1.5em;margin-top:15px;">From</span>
-					<input id="datepicker"  type="text"  aria-label="Text input with checkbox">
-				  
-				    <span class="" style="font-size:1.5em;margin-top:15px;">to</span>
-				  	<input  id="datepicker2" type="text"  aria-label="Text input with checkbox">
-				</div>
-            </li>
-            
-           <!-- <li class="nav-item" style="margin-top:85px;">
-                <span class="nav-link" >Time </span>
-                <button type="button" class="btn btn-success btn_filter filter_btns" style="padding:3px 0;">Filter The Results</button>	
-            </li>
-            -->
-             <!--
-              <li class="nav-item" style="margin-top:115px;">
-               
-                <button type="button" class="btn btn-success btn_filter filter_btns" style="padding:3px 0;">Filter The Results</button>	
-            </li>
-                        
-          </ul>
-		 </div>
-		
-		-->
 		
 		<!--Modal , show where to put the tweets--> 
 	<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="font-size:0.9em;">
@@ -249,21 +134,9 @@
 				  <div class="form-group">
 					<label for="recipient-name" class="form-control-label">Choose a Folder Below:</label>
 						<select class="form-control" id="folder_name">
-						  <!-- <option>Favorite</option>
-						  <option>Customer Created</option>
-						  <option>List 2</option>
-						  <option>To Read</option> -->
 
 						</select>
 				  </div>
-				  <!-- <div class="form-group">
-					<label for="message-text" class="form-control-label">Name</label>
-					<input class="form-control" id="message-text" value="The name and information of the tweets" />
-				  </div>
-				  <div class="form-group">
-					<label for="message-text" class="form-control-label">Description:</label>
-					<input class="form-control" id="message-text" />
-				  </div> -->
 				</form>
 			  </div>
 			  <div class="modal-footer">
@@ -349,14 +222,14 @@
        <!-- <span style="display: none" id="tweet_id_span"></span>  -->
 			  </div>
         
-        <!-- end -- here is the favorite tweet info -->
+        <!-- end  here is the favorite tweet info -->
       </div>
    
     </div>
   </div>
 </div>
 	 
-	 <!-- end --show tweet from favorite tweet -->
+	 <!-- end show tweet from favorite tweet -->
 		 
 	<!--Modal , Create a new folder--> 
 	<div class="modal fade" id="createList" tabindex="-1" role="dialog" aria-labelledby="example1" aria-hidden="true" style="font-size:0.9em;">
@@ -430,114 +303,7 @@
                     <!--<p>Favorite Tweets</p> -->
                     <h6 style="margin-left:30px;">Folders</h6>
                     <li id = "favorites">
-                       <!--edit list name, delete list btn -->
-                        <!-- <div class="edit_cont" style="display:none;">
-                         <span class="btn btn-primary"><span class="glyphicon glyphicon-pencil" ></span>Rename</span>
-                         <span class="btn btn-danger delete_icon"><span class="glyphicon glyphicon-trash" ></span></span>
-                        </div> -->
-                          <!---end -edit list name, delete list btn -->
-                        <!-- <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false">
-                        
-                        <span class="favorite_icon glyphicon glyphicon-heart" aria-hidden="true"></span> Favorite
                        
-                        </a>
-                      
-                        
-                        <ul class="collapse list-unstyled" id="pageSubmenu1" >
-                            <li class="favorite_list"><a>
-                           
-                            
-                            <div class="row">
-                            	<div class="col-2">
-                            		<img src="images/avatar.png" >
-                            	</div>
-                            	<div class="favorite_item_cont col-10">
-                            		<span>Dava Game</span><br />
-                            		<span class="item_content">Aenean lacinia bibendum nulla sed consectetur</span>
-                            	</div>
-                            </div> -->
-                            
-                              <!--delete icon for tweets -->
-                             <!-- <div class="delete_icon_cont">
-                             <span class="btn btn-danger btn-sm delete_icon"><span class="glyphicon glyphicon-trash"></span></span>
-                            </div>
-                            
-                            </a>	
-                            </li>
-                          <li class="favorite_list"><a>
-                            <div class="row">
-                            	<div class="col-2">
-                            		<img src="images/avatar.png" >
-                            	</div>
-                            	<div class="favorite_item_cont col-10">
-                            		<span>Dava Game</span><br />
-                            		<span class="item_content">Aenean lacinia bibendum nulla sed consectetur.v</span>
-                            	</div>
-                            </div> -->
-                           <!--delete icon for tweets -->
-                            <!--  <div class="delete_icon_cont">
-                             <span class="btn btn-danger btn-sm delete_icon"><span class="glyphicon glyphicon-trash"></span></span>
-                            </div>
-                            
-                            </a>
-                             
-                            		
-                           </li>
-                           
-                          
-                        </ul>
-                    </li>
-                  <li> -->
-                       
-                        <!-- <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false">
-                        <span class="favorite_icon glyphicon glyphicon-briefcase" aria-hidden="true"></span> Customer Created</a>
-                        <ul class="collapse list-unstyled" id="pageSubmenu3">
-                           <li class="favorite_list"><a>
-                            <div class="row">
-                            	<div class="col-2">
-                            		<img src="images/avatar.png" >
-                            	</div>
-                            	<div class="favorite_item_cont col-10">
-                            		<span>Dava Game</span><br />
-                            		<span class="item_content">Aenean lacinia bibendum nulla sed consectetur.v</span>
-                            	</div>
-                            </div>
-                            </a>	
-                            </li>
-                          <li class="favorite_list"><a>
-                            <div class="row">
-                            	<div class="col-2">
-                            		<img src="images/avatar.png" >
-                            	</div>
-                            	<div class="favorite_item_cont col-10">
-                            		<span>Dava Game</span><br />
-                            		<span class="item_content">Aenean lacinia bibendum nulla sed consectetur.v</span>
-                            	</div>
-                            </div>
-                            </a>	
-                           </li>
-                           
-                          <li class="favorite_list"><a>
-                            <div class="row">
-                            	<div class="col-2">
-                            		<img src="images/avatar.png" >
-                            	</div>
-                            	<div class="favorite_item_cont col-10">
-                            		<span>Dava Game</span><br />
-                            		<span class="item_content">Aenean lacinia bibendum nulla sed consectetur.v</span>
-                            	</div>
-                            </div>
-                            </a>	
-                          </li>
-                        </ul>
-                    </li>
-                     <li>
-                       
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-                        <span class="favorite_icon glyphicon glyphicon-paperclip" aria-hidden="true"></span> Pages</a>
-                        <ul class="collapse list-unstyled" id="pageSubmenu">
-                            
-                        </ul> -->
                     </li>
                 </ul>
 

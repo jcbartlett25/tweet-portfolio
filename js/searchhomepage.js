@@ -1,5 +1,6 @@
 //https://bootsnipp.com/snippets/featured/full-screen-search
 
+// Adding event listeners to relevant pages
 $(function () {
     $('a[href="#search"]').on('click', function(event) {
         event.preventDefault();
@@ -15,12 +16,13 @@ $(function () {
 	
 });
 
+// Setting up codebird
 var cb = new Codebird;
 cb.setConsumerKey("s75bp2rPR15pzp8wQFIuul24U", "aYaHZQBCvDXD3kx9svd5WGLKLUuRPqyvuKckGY0iAZ9SgnYSFF");
-
 var oauth_token = localStorage.getItem("oauth_token");
 var oauth_token_secret = localStorage.getItem("oauth_token_secret");
 
+// Trends vue object
 var trending_vue = new Vue({
         el: '#trending', 
         data: {
@@ -79,6 +81,7 @@ var counter = 0;
 
 
 function getTrends() {
+    // Gets the global trending topics and puts them in the correct place
     params = {id: 1}
     cb.__call(
         "trends_place",

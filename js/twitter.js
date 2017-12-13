@@ -7,6 +7,7 @@ var last_search = localStorage.getItem("last_search");
 
 
 function getParameterByName(name, url) {
+    // Parses url and gets the query parameter
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
@@ -30,6 +31,8 @@ var feed_vue = new Vue({
 
 
 function readyUp() {
+    /* Populates the search box with either the query from the previous page,
+    or the last search from the user, and authenticates codebird */
 
     if (url_query) {
         $('#search_box').val(url_query);
@@ -86,16 +89,21 @@ function getActualTweetID(status) {
 }
 
 function filteredSearch() {
-
+    //Gets the current selected filters, searches twitter, and updates the feed with new tweets
+    
+    // e.g. mixed, popular, or recent
     var result_type = '';
     $('#filter_twitter .btn_active').each(function(){
         result_type = $(this).val(); 
     });
+
+    // e.g. text, all, images
     var tweet_type = '';
     $('#filter_type .btn_active').each(function(){
         tweet_type = $(this).val(); 
     });
-    console.log(tweet_type);
+    
+    // Save this search for future reference
     localStorage.setItem("last_search", $('#search_box').val());
     params = {q: $('#search_box').val(), count: 100, result_type: result_type};
 
@@ -109,6 +117,7 @@ function filteredSearch() {
 
             var temp_tweets = [];
 
+            // Go through each tweet and parse relevant data
             for (var i = 0; i < statuses.length; i++){
                 var status = statuses[i];
                 var image;
@@ -132,7 +141,8 @@ function filteredSearch() {
 
 
         }, true);
-    
+
+    // Scroll window back up to the top
     window.scrollBy(0, -50000000);
     
 }

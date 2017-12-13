@@ -20,16 +20,9 @@ $(document).ready(function(){
 
 
  $(document).ready(function () {
-     /*          
-	 $('#sidebarCollapse').on('click', function () {
-					 
-                     $('#sidebar').toggleClass('active');
-					 
-                 });
-	 			
-	*/
 	 loading_search();
-	 
+
+	 // Setting up tweet ordering filter
 	 $('#filter_twitter .btn_filter').on('click',function() {
 		  	$('#filter_twitter .btn_filter').toggleClass('btn_active');
 		  	loading_search();
@@ -45,6 +38,7 @@ $(document).ready(function(){
 		$(this).addClass('btn_active');
 	});
 	 
+	 // Setting up tweet type filter
 	 $('#filter_type .btn_filter').on('click',function(){
 			//$('#filter_type .btn_filter').toggleClass('btn_active');  
 		 
@@ -56,13 +50,6 @@ $(document).ready(function(){
 
              });
 
-/*
-function changeActive(var event)
-{
-	$('#filter_type').children().removeClass('btn_active');
-	alert(event);
-}
-*/
 
 $(document).on('click','.search_group_btn', function(){
 	
@@ -72,6 +59,7 @@ $(document).on('click','.search_group_btn', function(){
 
 function loading_search(){
 	
+	// Displays loading gif
 	document.getElementById("loader").style.display = "block";
 	myVar = setTimeout(showPage, 2000);
 	
@@ -79,6 +67,8 @@ function loading_search(){
 }
 
 function showPage() {
+
+	// Hides loading gif
   document.getElementById("loader").style.display = "none";
   $('.btn_self').removeClass('btn_active');
 }
